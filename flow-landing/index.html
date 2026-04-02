@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mistrz Koncentracji i Flow — Odzyskaj Kontrolę Nad Swoim Umysłem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ============ RESET & BASE ============ */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-deep: #06060f;
+            --bg-section: #0a0a1a;
+            --bg-card: rgba(255 255 255 / 0.04);
+            --accent: #7c3aed;
+            --accent-light: #a78bfa;
+            --cyan: #06b6d4;
+            --cyan-glow: rgba(6, 182, 212, 0.35);
+            --purple-glow: rgba(124, 58, 237, 0.35);
+            --magenta: #ec4899;
+            --gold: #f59e0b;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --text-bright: #f8fafc;
+            --gradient-main: linear-gradient(135deg, #7c3aed 0%, #06b6d4 50%, #ec4899 100%);
+            --gradient-cta: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+            --radius: 16px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-deep);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        /* ============ SCROLLBAR ============ */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-deep); }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 3px;
+        }
+
+        /* ============ UTILITIES ============ */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .gradient-text {
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ============ REVEAL ANIMATIONS ============ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-80px);
+            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(80px);
+            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.85);
+            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+
+        /* ============ FLOATING ORB BACKGROUNDS ============ */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .orb-purple {
+            background: var(--purple-glow);
+        }
+        .orb-cyan {
+            background: var(--cyan-glow);
+        }
+        .orb-magenta {
+            background: rgba(236, 72, 153, 0.2);
+        }
+
+        /* ============ HERO ============ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 40px 24px;
+        }
+
+        .hero .orb-1 {
+            width: 600px; height: 600px;
+            top: -200px; left: -100px;
+        }
+        .hero .orb-2 {
+            width: 500px; height: 500px;
+            bottom: -150px; right: -100px;
+        }
+        .hero .orb-3 {
+            width: 300px; height: 300px;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Animated particle grid */
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .hero-particles span {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(167, 139, 250, 0.6);
+            border-radius: 50%;
+            animation: float-particle linear infinite;
+        }
+
+        @keyframes float-particle {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            border-radius: 100px;
+            border: 1px solid rgba(124, 58, 237, 0.4);
+            background: rgba(124, 58, 237, 0.1);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent-light);
+            margin-bottom: 32px;
+            animation: pulse-border 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-border {
+            0%, 100% { border-color: rgba(124, 58, 237, 0.4); box-shadow: 0 0 20px rgba(124, 58, 237, 0.1); }
+            50% { border-color: rgba(6, 182, 212, 0.6); box-shadow: 0 0 30px rgba(6, 182, 212, 0.15); }
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 .line-glow {
+            position: relative;
+            display: inline-block;
+        }
+        .hero h1 .line-glow::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-main);
+            border-radius: 2px;
+            animation: glow-line 3s ease-in-out infinite alternate;
+        }
+        @keyframes glow-line {
+            0% { box-shadow: 0 0 8px var(--cyan-glow); }
+            100% { box-shadow: 0 0 20px var(--purple-glow); }
+        }
+
+        .hero-sub {
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
+            color: var(--text-muted);
+            max-width: 640px;
+            margin: 0 auto 48px;
+            line-height: 1.8;
+        }
+        .hero-sub strong {
+            color: var(--cyan);
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 44px;
+            border-radius: 100px;
+            background: var(--gradient-cta);
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            box-shadow: 0 0 40px rgba(124, 58, 237, 0.4), 0 0 80px rgba(236, 72, 153, 0.15);
+        }
+        .hero-cta:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 0 60px rgba(124, 58, 237, 0.6), 0 0 120px rgba(236, 72, 153, 0.25);
+        }
+        .hero-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.15), transparent 30%);
+            animation: rotate-shine 3s linear infinite;
+        }
+        @keyframes rotate-shine {
+            to { transform: rotate(360deg); }
+        }
+        .hero-cta span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-meta {
+            margin-top: 28px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .hero-meta i {
+            color: var(--accent-light);
+            margin-right: 6px;
+        }
+
+        /* ============ SOCIAL PROOF / STATS BAR ============ */
+        .stats-bar {
+            padding: 60px 0;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            background: rgba(10, 10, 26, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+        .stat-item {
+            position: relative;
+        }
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* ============ PROBLEM SECTION ============ */
+        .problem {
+            background: var(--bg-section);
+            position: relative;
+        }
+        .problem .orb-1 {
+            width: 400px; height: 400px;
+            top: 20%; right: -200px;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--cyan);
+            margin-bottom: 20px;
+        }
+        .section-label::before {
+            content: '';
+            width: 24px;
+            height: 2px;
+            background: var(--cyan);
+            border-radius: 2px;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 60px;
+            line-height: 1.7;
+        }
+
+        .problem-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .problem-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--radius);
+            padding: 36px 28px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .problem-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(236, 72, 153, 0.3);
+            box-shadow: 0 20px 60px rgba(236, 72, 153, 0.1);
+        }
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--magenta), var(--accent));
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .problem-card:hover::before { opacity: 1; }
+
+        .problem-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: rgba(236, 72, 153, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            color: var(--magenta);
+        }
+
+        .problem-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-bright);
+        }
+        .problem-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .problem-highlight {
+            margin-top: 60px;
+            padding: 36px;
+            border-radius: var(--radius);
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.12), rgba(6, 182, 212, 0.08));
+            border: 1px solid rgba(124, 58, 237, 0.2);
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-bright);
+            line-height: 1.7;
+            position: relative;
+        }
+        .problem-highlight::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: var(--radius);
+            background: var(--gradient-main);
+            z-index: -1;
+            opacity: 0.15;
+            filter: blur(20px);
+        }
+        .problem-highlight strong {
+            color: var(--cyan);
+        }
+
+        /* ============ WHAT YOU GET ============ */
+        .offer {
+            position: relative;
+        }
+
+        .offer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        @media (max-width: 768px) {
+            .offer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .offer-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--radius);
+            padding: 44px 36px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .offer-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 30px 80px rgba(124, 58, 237, 0.12);
+        }
+
+        .offer-card.primary {
+            border-color: rgba(124, 58, 237, 0.3);
+            background: linear-gradient(180deg, rgba(124, 58, 237, 0.08) 0%, transparent 100%);
+        }
+        .offer-card.bonus {
+            border-color: rgba(6, 182, 212, 0.3);
+            background: linear-gradient(180deg, rgba(6, 182, 212, 0.06) 0%, transparent 100%);
+        }
+
+        .offer-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            padding: 6px 14px;
+            border-radius: 100px;
+            margin-bottom: 24px;
+        }
+        .offer-tag.primary-tag {
+            background: rgba(124, 58, 237, 0.2);
+            color: var(--accent-light);
+        }
+        .offer-tag.bonus-tag {
+            background: rgba(6, 182, 212, 0.15);
+            color: var(--cyan);
+        }
+
+        .offer-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-bright);
+        }
+
+        .offer-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .offer-list li {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        .offer-list li i {
+            flex-shrink: 0;
+            margin-top: 4px;
+            font-size: 0.85rem;
+        }
+        .offer-card.primary .offer-list li i { color: var(--accent-light); }
+        .offer-card.bonus .offer-list li i { color: var(--cyan); }
+
+        /* ============ FOR WHOM ============ */
+        .audience {
+            background: var(--bg-section);
+            position: relative;
+            overflow: hidden;
+        }
+        .audience .orb-1 {
+            width: 500px; height: 500px;
+            bottom: -200px; left: -200px;
+        }
+
+        .audience-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .audience-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .audience-text h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+        .audience-text > p {
+            color: var(--text-muted);
+            margin-bottom: 36px;
+            font-size: 1.05rem;
+        }
+
+        .audience-checks {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .audience-checks li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            font-size: 1rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        .check-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            margin-top: 2px;
+        }
+        .check-icon.purple {
+            background: rgba(124, 58, 237, 0.15);
+            color: var(--accent-light);
+        }
+
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        .role-chip {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 20px;
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 14px;
+            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+        .role-chip:hover {
+            border-color: rgba(124, 58, 237, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(124, 58, 237, 0.1);
+        }
+        .role-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .role-icon.i1 { background: rgba(124, 58, 237, 0.12); color: var(--accent-light); }
+        .role-icon.i2 { background: rgba(6, 182, 212, 0.12); color: var(--cyan); }
+        .role-icon.i3 { background: rgba(236, 72, 153, 0.12); color: var(--magenta); }
+        .role-icon.i4 { background: rgba(245, 158, 11, 0.12); color: var(--gold); }
+        .role-icon.i5 { background: rgba(16, 185, 129, 0.12); color: #10b981; }
+        .role-icon.i6 { background: rgba(99, 102, 241, 0.12); color: #818cf8; }
+
+        .role-chip span {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-bright);
+        }
+
+        /* ============ WHY IT WORKS ============ */
+        .science {
+            position: relative;
+            text-align: center;
+        }
+
+        .science-intro {
+            max-width: 650px;
+            margin: 0 auto 60px;
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+        .science-intro strong {
+            color: var(--text-bright);
+        }
+
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        @media (max-width: 900px) {
+            .pillars {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pillar {
+            padding: 40px 28px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255,255,255,0.06);
+            background: var(--bg-card);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .pillar:hover {
+            transform: translateY(-6px);
+        }
+        .pillar:nth-child(1):hover { box-shadow: 0 20px 60px rgba(124, 58, 237, 0.15); }
+        .pillar:nth-child(2):hover { box-shadow: 0 20px 60px rgba(6, 182, 212, 0.15); }
+        .pillar:nth-child(3):hover { box-shadow: 0 20px 60px rgba(236, 72, 153, 0.15); }
+
+        .pillar-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin: 0 auto 24px;
+        }
+        .pillar:nth-child(1) .pillar-icon {
+            background: rgba(124, 58, 237, 0.12);
+            color: var(--accent-light);
+        }
+        .pillar:nth-child(2) .pillar-icon {
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--cyan);
+        }
+        .pillar:nth-child(3) .pillar-icon {
+            background: rgba(236, 72, 153, 0.1);
+            color: var(--magenta);
+        }
+
+        .pillar h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-bright);
+        }
+        .pillar p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .science-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 50px;
+            padding: 14px 28px;
+            border-radius: 100px;
+            background: rgba(6, 182, 212, 0.08);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            font-size: 0.9rem;
+            color: var(--cyan);
+            font-weight: 500;
+        }
+
+        /* ============ RESULTS ============ */
+        .results {
+            background: var(--bg-section);
+            position: relative;
+            overflow: hidden;
+        }
+        .results .orb-1 {
+            width: 500px; height: 500px;
+            top: -200px; right: -200px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .result-card {
+            padding: 36px;
+            border-radius: var(--radius);
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+        .result-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(16, 185, 129, 0.4);
+        }
+
+        .result-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .result-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-bright);
+            margin-bottom: 8px;
+        }
+        .result-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ============ PRICING / CTA ============ */
+        .pricing {
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+        }
+        .pricing .orb-1 { width: 500px; height: 500px; top: -250px; left: 50%; margin-left: -250px; }
+
+        .pricing-card {
+            max-width: 580px;
+            margin: 0 auto;
+            padding: 56px 48px;
+            border-radius: 24px;
+            background: linear-gradient(180deg, rgba(124, 58, 237, 0.06) 0%, rgba(6, 182, 212, 0.03) 100%);
+            border: 1px solid rgba(124, 58, 237, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 26px;
+            background: var(--gradient-main);
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .pricing-eyebrow {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--cyan);
+            margin-bottom: 16px;
+        }
+
+        .pricing-card h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .price-row {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .price-amount {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .price-currency {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .price-note {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        .pricing-includes {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 36px;
+            text-align: left;
+        }
+        .pricing-includes li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+        .pricing-includes li i {
+            color: #10b981;
+            font-size: 0.85rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 20px 56px;
+            border-radius: 100px;
+            background: var(--gradient-cta);
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.15rem;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            box-shadow: 0 0 40px rgba(124, 58, 237, 0.35), 0 0 80px rgba(236, 72, 153, 0.12);
+            border: none;
+            cursor: pointer;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.04);
+            box-shadow: 0 0 60px rgba(124, 58, 237, 0.55), 0 0 120px rgba(236, 72, 153, 0.2);
+        }
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.12), transparent 30%);
+            animation: rotate-shine 3s linear infinite;
+        }
+        .cta-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .guarantee {
+            margin-top: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .guarantee i {
+            color: var(--gold);
+        }
+
+        .pricing-math {
+            margin-top: 48px;
+            padding: 32px;
+            border-radius: var(--radius);
+            background: rgba(6, 182, 212, 0.04);
+            border: 1px solid rgba(6, 182, 212, 0.15);
+            max-width: 580px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .pricing-math p {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.8;
+        }
+        .pricing-math strong {
+            color: var(--cyan);
+        }
+        .pricing-math .math-big {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 16px 0 8px;
+        }
+
+        /* ============ FOOTER ============ */
+        .footer {
+            padding: 40px 0;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            text-align: center;
+        }
+        .footer p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .footer-brand {
+            font-weight: 700;
+            color: var(--accent-light);
+        }
+
+        /* ============ FLOATING SCROLL INDICATOR ============ */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            animation: bounce-down 2s ease-in-out infinite;
+        }
+        .scroll-indicator i {
+            font-size: 1.2rem;
+            color: var(--accent-light);
+        }
+        @keyframes bounce-down {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* ============ PROGRESS BAR ============ */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--gradient-main);
+            z-index: 9999;
+            transition: width 0.15s ease;
+            box-shadow: 0 0 10px var(--cyan-glow);
+        }
+
+        /* ============ SEPARATOR ============ */
+        .wave-sep {
+            height: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .wave-sep svg {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 80px;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 600px) {
+            .section { padding: 80px 0; }
+            .hero { padding: 80px 16px 60px; }
+            .pricing-card { padding: 36px 24px; }
+            .offer-card { padding: 32px 24px; }
+            .roles-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Progress Bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+    <div class="hero-particles" id="particles"></div>
+    <div class="orb orb-purple orb-1"></div>
+    <div class="orb orb-cyan orb-2"></div>
+    <div class="orb orb-magenta orb-3"></div>
+
+    <div class="hero-content">
+        <div class="hero-badge reveal-scale">
+            <i class="fa-solid fa-bolt"></i>
+            E-book + Video Instrukcja
+        </div>
+
+        <h1 class="reveal">
+            Stań się mistrzem<br>
+            <span class="gradient-text line-glow">koncentracji</span> i stanu
+            <span class="gradient-text">flow</span>
+        </h1>
+
+        <p class="hero-sub reveal delay-1">
+            Odzyskaj kontrolę nad swoim umysłem. Skróć czas „rozkręcania się" do minimum
+            i wejdź w <strong>tryb głębokiej pracy</strong> — szybciej niż kiedykolwiek.
+        </p>
+
+        <a href="#pricing" class="hero-cta reveal delay-2">
+            <span><i class="fa-solid fa-download"></i> Pobierz i zacznij dziś</span>
+        </a>
+
+        <div class="hero-meta reveal delay-3">
+            <span><i class="fa-solid fa-file-pdf"></i> PDF + MP4</span>
+            <span><i class="fa-solid fa-bolt-lightning"></i> Natychmiastowy dostęp</span>
+            <span><i class="fa-solid fa-shield-halved"></i> Bezpieczna płatność</span>
+        </div>
+    </div>
+
+    <div class="scroll-indicator">
+        <span>Odkryj więcej</span>
+        <i class="fa-solid fa-chevron-down"></i>
+    </div>
+</section>
+
+<!-- ==================== STATS BAR ==================== -->
+<div class="stats-bar">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item reveal delay-1">
+                <div class="stat-number gradient-text">23 min</div>
+                <div class="stat-label">średni czas powrotu do zadania po rozproszeniu</div>
+            </div>
+            <div class="stat-item reveal delay-2">
+                <div class="stat-number gradient-text">~4 000 zł</div>
+                <div class="stat-label">miesięcznie traconej wartości przez brak fokusa</div>
+            </div>
+            <div class="stat-item reveal delay-3">
+                <div class="stat-number gradient-text">3–5 min</div>
+                <div class="stat-label">wystarczy, by zregulować układ nerwowy</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== PROBLEM ==================== -->
+<section class="section problem">
+    <div class="orb orb-magenta orb-1"></div>
+    <div class="container">
+        <div class="section-label reveal">Problem</div>
+        <h2 class="section-title reveal">
+            Każda godzina rozproszonej pracy<br>to <span class="gradient-text">realna strata</span>
+        </h2>
+        <p class="section-subtitle reveal delay-1">
+            Pracujesz umysłem, zarabiasz powyżej 10 tys. zł miesięcznie — ale Twoja produktywność
+            wykrwawia się przez ciągłe rozproszenia.
+        </p>
+
+        <div class="problem-cards">
+            <div class="problem-card reveal delay-1">
+                <div class="problem-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                <h3>Powiadomienia niszczą Twój flow</h3>
+                <p>Badania University of California pokazują: po każdym rozproszeniu potrzebujesz średnio 23&nbsp;minuty, żeby w pełni wrócić do zadania. Policz, ile razy dziennie sprawdzasz telefon.</p>
+            </div>
+            <div class="problem-card reveal delay-2">
+                <div class="problem-icon"><i class="fa-solid fa-hourglass-half"></i></div>
+                <h3>Za długo się „rozkręcasz"</h3>
+                <p>Siadasz do pracy, ale umysł wchodzi w tryb głęboki dopiero po godzinie. Połowa dnia mija, zanim naprawdę ruszasz z miejsca.</p>
+            </div>
+            <div class="problem-card reveal delay-3">
+                <div class="problem-icon"><i class="fa-solid fa-brain"></i></div>
+                <h3>Wiesz, że Twój potencjał jest większy</h3>
+                <p>Pamiętasz te dni, gdy byłeś „w strefie" — klarowny, szybki, precyzyjny. Teraz takie dni zdarzają się coraz rzadziej.</p>
+            </div>
+        </div>
+
+        <div class="problem-highlight reveal delay-2">
+            Twoja zdolność do głębokiej koncentracji <strong>nie jest talentem</strong> — to umiejętność, którą można <strong>wytrenować</strong>.
+        </div>
+    </div>
+</section>
+
+<!-- ==================== WHAT YOU GET ==================== -->
+<section class="section offer">
+    <div class="container">
+        <div class="section-label reveal">Co dostajesz</div>
+        <h2 class="section-title reveal">
+            Kompletny system <span class="gradient-text">budowania fokusa</span>
+        </h2>
+        <p class="section-subtitle reveal delay-1">
+            Nie kolejny poradnik o produktywności. Konkretne narzędzia oparte na nauce.
+        </p>
+
+        <div class="offer-grid">
+            <div class="offer-card primary reveal-left delay-1">
+                <span class="offer-tag primary-tag"><i class="fa-solid fa-book"></i> Główny materiał</span>
+                <h3>E-book: System budowania koncentracji</h3>
+                <ul class="offer-list">
+                    <li><i class="fa-solid fa-check-circle"></i> Techniki szybszego wejścia w stan głębokiej pracy — skrócenie „czasu rozkręcania się"</li>
+                    <li><i class="fa-solid fa-check-circle"></i> Techniki regulacji układu nerwowego przed wymagającymi zadaniami</li>
+                    <li><i class="fa-solid fa-check-circle"></i> Strategia budowania odporności na rozproszenia — e-maile, spotkania, multitasking</li>
+                    <li><i class="fa-solid fa-check-circle"></i> Metody z psychologii poznawczej i praktyk elitarnego sportu</li>
+                </ul>
+            </div>
+
+            <div class="offer-card bonus reveal-right delay-2">
+                <span class="offer-tag bonus-tag"><i class="fa-solid fa-gift"></i> Bonus</span>
+                <h3>Video: Oddech kwadratowy (Box Breathing)</h3>
+                <ul class="offer-list">
+                    <li><i class="fa-solid fa-check-circle"></i> Technika regulacji stresu stosowana przez Navy SEALs w sytuacjach wysokiego ryzyka</li>
+                    <li><i class="fa-solid fa-check-circle"></i> Działa w 3–5 minut — potwierdzone badaniami klinicznymi</li>
+                    <li><i class="fa-solid fa-check-circle"></i> Instrukcja krok po kroku, do zastosowania przed następnym spotkaniem</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FOR WHOM ==================== -->
+<section class="section audience">
+    <div class="orb orb-purple orb-1"></div>
+    <div class="container">
+        <div class="audience-content">
+            <div class="audience-text reveal-left">
+                <div class="section-label">Dla kogo</div>
+                <h2>
+                    Stworzony dla <span class="gradient-text">profesjonalistów</span>,
+                    którzy wiedzą, że fokus to przewaga
+                </h2>
+                <p>Ten materiał jest dla Ciebie, jeśli:</p>
+                <ul class="audience-checks">
+                    <li>
+                        <div class="check-icon purple"><i class="fa-solid fa-check"></i></div>
+                        Prowadzisz zespół lub projekt wymagający precyzyjnych decyzji
+                    </li>
+                    <li>
+                        <div class="check-icon purple"><i class="fa-solid fa-check"></i></div>
+                        Pracujesz w trybie „deep work", ale wchodzisz w niego zbyt długo
+                    </li>
+                    <li>
+                        <div class="check-icon purple"><i class="fa-solid fa-check"></i></div>
+                        Czujesz, że mógłbyś osiągać więcej przy tej samej liczbie godzin
+                    </li>
+                    <li>
+                        <div class="check-icon purple"><i class="fa-solid fa-check"></i></div>
+                        Chcesz odzyskać klarowność umysłu z najlepszych dni w karierze
+                    </li>
+                </ul>
+            </div>
+
+            <div class="roles-grid reveal-right delay-2">
+                <div class="role-chip">
+                    <div class="role-icon i1"><i class="fa-solid fa-code"></i></div>
+                    <span>Programiści</span>
+                </div>
+                <div class="role-chip">
+                    <div class="role-icon i2"><i class="fa-solid fa-chart-line"></i></div>
+                    <span>Analitycy</span>
+                </div>
+                <div class="role-chip">
+                    <div class="role-icon i3"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <span>Prawnicy</span>
+                </div>
+                <div class="role-chip">
+                    <div class="role-icon i4"><i class="fa-solid fa-stethoscope"></i></div>
+                    <span>Lekarze</span>
+                </div>
+                <div class="role-chip">
+                    <div class="role-icon i5"><i class="fa-solid fa-handshake"></i></div>
+                    <span>Konsultanci</span>
+                </div>
+                <div class="role-chip">
+                    <div class="role-icon i6"><i class="fa-solid fa-rocket"></i></div>
+                    <span>Przedsiębiorcy</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== WHY IT WORKS ==================== -->
+<section class="section science">
+    <div class="container">
+        <div class="section-label reveal" style="justify-content: center;">Dlaczego to działa</div>
+        <h2 class="section-title reveal" style="text-align: center;">
+            Nauka, nie <span class="gradient-text">motywacyjny bełkot</span>
+        </h2>
+        <p class="science-intro reveal delay-1">
+            To <strong>nie jest</strong> kolejny poradnik o produktywności. To konkretny system oparty na trzech filarach naukowych.
+        </p>
+
+        <div class="pillars">
+            <div class="pillar reveal delay-1">
+                <div class="pillar-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                <h3>Psychologia poznawcza</h3>
+                <p>Mechanizmy uwagi, „attention residue" i warunki wejścia w flow — na bazie badań Csíkszentmihályi'ego i Sophie Leroy.</p>
+            </div>
+            <div class="pillar reveal delay-2">
+                <div class="pillar-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                <h3>Neurofizjologia stresu</h3>
+                <p>Jak układ nerwowy sabotuje Twoją koncentrację — i jak go świadomie regulować, zanim siądziesz do pracy.</p>
+            </div>
+            <div class="pillar reveal delay-3">
+                <div class="pillar-icon"><i class="fa-solid fa-crosshairs"></i></div>
+                <h3>Techniki elitarnego sportu</h3>
+                <p>Box breathing, rytuały przygotowawcze, kontrola pobudzenia — stosowane przez Navy SEALs i zawodowych sportowców.</p>
+            </div>
+        </div>
+
+        <div class="science-badge reveal delay-4">
+            <i class="fa-solid fa-flask"></i>
+            Bez mistyki. Bez „fluffu". Tylko to, co ma pokrycie w badaniach.
+        </div>
+    </div>
+</section>
+
+<!-- ==================== RESULTS ==================== -->
+<section class="section results">
+    <div class="orb orb-cyan orb-1"></div>
+    <div class="container">
+        <div class="section-label reveal">Efekty</div>
+        <h2 class="section-title reveal">
+            Po przeczytaniu <span class="gradient-text">tego materiału</span>
+        </h2>
+        <p class="section-subtitle reveal delay-1">
+            Konkretne, mierzalne zmiany w Twojej codziennej pracy.
+        </p>
+
+        <div class="results-grid">
+            <div class="result-card reveal delay-1">
+                <div class="result-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                <div>
+                    <h3>Szybciej wejdziesz w stan koncentracji</h3>
+                    <p>Mniej czasu na „rozkręcanie się" — start dnia staje się natychmiastowy.</p>
+                </div>
+            </div>
+            <div class="result-card reveal delay-2">
+                <div class="result-icon"><i class="fa-solid fa-bullseye"></i></div>
+                <div>
+                    <h3>Utrzymasz fokus dłużej</h3>
+                    <p>Mniej wypadania z rytmu pracy, mniej „tu wracam po przerwie".</p>
+                </div>
+            </div>
+            <div class="result-card reveal delay-3">
+                <div class="result-icon"><i class="fa-solid fa-shield-heart"></i></div>
+                <div>
+                    <h3>Odzyskasz kontrolę nad stresem</h3>
+                    <p>Opanujesz reakcje na presję — spokojniej, trzeźwiej, skuteczniej.</p>
+                </div>
+            </div>
+            <div class="result-card reveal delay-4">
+                <div class="result-icon"><i class="fa-solid fa-chess"></i></div>
+                <div>
+                    <h3>Podejmiesz lepsze decyzje</h3>
+                    <p>Spokojniejszy umysł = bardziej analityczne i precyzyjne myślenie.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== PRICING ==================== -->
+<section class="section pricing" id="pricing">
+    <div class="orb orb-purple orb-1"></div>
+    <div class="container">
+        <div class="pricing-card reveal-scale">
+            <div class="pricing-eyebrow">Inwestycja, która się zwraca w pierwszym miesiącu</div>
+            <h2>Odzyskaj swoje <span class="gradient-text">godziny i pieniądze</span></h2>
+
+            <div class="price-row">
+                <span class="price-amount gradient-text">47</span>
+                <span class="price-currency">zł</span>
+            </div>
+            <p class="price-note">Jednorazowa płatność · Dostęp na zawsze</p>
+
+            <ul class="pricing-includes">
+                <li><i class="fa-solid fa-circle-check"></i> E-book: System budowania koncentracji (PDF)</li>
+                <li><i class="fa-solid fa-circle-check"></i> Bonus: Video instrukcja — Oddech kwadratowy (MP4)</li>
+                <li><i class="fa-solid fa-circle-check"></i> Natychmiastowy dostęp po zakupie</li>
+                <li><i class="fa-solid fa-circle-check"></i> Umiejętność na całe życie zawodowe</li>
+            </ul>
+
+            <a href="#" class="cta-button">
+                <span><i class="fa-solid fa-bolt-lightning"></i> Pobierz teraz za 47 zł</span>
+            </a>
+
+            <div class="guarantee">
+                <i class="fa-solid fa-lock"></i>
+                Bezpieczna płatność · Stripe
+            </div>
+        </div>
+
+        <div class="pricing-math reveal delay-2">
+            <p>Jeśli zarabiasz 10 tys. zł miesięcznie, każda godzina Twojej pracy w stanie pełnej koncentracji jest warta <strong>~125 zł</strong>.</p>
+            <div class="math-big gradient-text">1,5 h × 20 dni = ~4 000 zł</div>
+            <p>miesięcznie — nie zarobionych, ale <strong>odzyskanych</strong>. Za jednorazowe 47 zł.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+    <div class="container">
+        <p>Aleksander Dudek · <span class="footer-brand">Mistrz Koncentracji</span> · &copy; 2026</p>
+    </div>
+</footer>
+
+<!-- ============ JAVASCRIPT ============ -->
+<script>
+    // ---- Scroll progress bar ----
+    const progressBar = document.getElementById('progressBar');
+    function updateProgress() {
+        const scrollTop = document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const progress = (scrollTop / scrollHeight) * 100;
+        progressBar.style.width = progress + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+
+    // ---- Intersection Observer for reveal animations ----
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -60px 0px'
+    });
+    revealElements.forEach(el => observer.observe(el));
+
+    // ---- Generate floating particles ----
+    const particlesContainer = document.getElementById('particles');
+    const particleCount = 45;
+    for (let i = 0; i < particleCount; i++) {
+        const span = document.createElement('span');
+        const size = Math.random() * 3 + 1;
+        span.style.width = size + 'px';
+        span.style.height = size + 'px';
+        span.style.left = Math.random() * 100 + '%';
+        span.style.animationDuration = (Math.random() * 12 + 8) + 's';
+        span.style.animationDelay = (Math.random() * 10) + 's';
+
+        const colors = [
+            'rgba(167, 139, 250, 0.6)',
+            'rgba(6, 182, 212, 0.5)',
+            'rgba(236, 72, 153, 0.4)',
+            'rgba(245, 158, 11, 0.3)'
+        ];
+        span.style.background = colors[Math.floor(Math.random() * colors.length)];
+        particlesContainer.appendChild(span);
+    }
+
+    // ---- Smooth parallax for orbs ----
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const scrollY = window.scrollY;
+                document.querySelectorAll('.orb').forEach((orb, i) => {
+                    const speed = 0.03 + (i * 0.015);
+                    orb.style.transform = `translateY(${scrollY * speed}px)`;
+                });
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
+
+    // ---- Animate stat numbers on scroll ----
+    const statNumbers = document.querySelectorAll('.stat-number');
+    let statsAnimated = false;
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !statsAnimated) {
+                statsAnimated = true;
+                statNumbers.forEach(el => {
+                    el.style.animation = 'none';
+                    el.offsetHeight; // trigger reflow
+                    el.style.animation = null;
+                });
+            }
+        });
+    }, { threshold: 0.5 });
+    statNumbers.forEach(el => statsObserver.observe(el));
+
+    // ---- Hide scroll indicator on scroll ----
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 200) {
+            scrollIndicator.style.opacity = '0';
+            scrollIndicator.style.transition = 'opacity 0.5s ease';
+        } else {
+            scrollIndicator.style.opacity = '1';
+        }
+    }, { passive: true });
+
+    // ---- Smooth anchor scroll ----
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
