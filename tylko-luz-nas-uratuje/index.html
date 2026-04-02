@@ -431,7 +431,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             background: var(--bg-card);
         }
         .testimonial-card .video-wrapper {
-            position: relative; padding-bottom: 56.25%; height: 0;
+            position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
         }
         .testimonial-card iframe {
             position: absolute; top: 0; left: 0;
@@ -445,6 +445,77 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         .testimonial-card p {
             font-size: 0.85rem; color: var(--text-muted);
+        }
+
+        /* ============ GOOGLE REVIEWS ============ */
+        .google-reviews { position: relative; overflow: hidden; }
+
+        .google-header {
+            display: flex; align-items: center; justify-content: center;
+            gap: 12px; margin-bottom: 12px;
+        }
+        .google-header img {
+            height: 28px; width: auto;
+        }
+        .google-rating-summary {
+            display: flex; align-items: center; justify-content: center;
+            gap: 12px; margin-bottom: 60px;
+        }
+        .google-rating-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem; font-weight: 800; color: var(--text-bright);
+        }
+        .google-stars { display: flex; gap: 3px; }
+        .google-stars i { color: #fbbc04; font-size: 1.1rem; }
+        .google-rating-count { font-size: 0.9rem; color: var(--text-muted); }
+
+        .reviews-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+        }
+
+        .review-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--radius); padding: 32px;
+            transition: transform 0.4s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        .review-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(251, 188, 4, 0.3);
+            box-shadow: 0 20px 60px rgba(251, 188, 4, 0.08);
+        }
+
+        .review-header {
+            display: flex; align-items: center; gap: 14px; margin-bottom: 16px;
+        }
+        .review-avatar {
+            width: 44px; height: 44px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 1.1rem; color: #fff; flex-shrink: 0;
+        }
+        .review-avatar.av1 { background: #e8453c; }
+        .review-avatar.av2 { background: #4285f4; }
+        .review-avatar.av3 { background: #34a853; }
+        .review-avatar.av4 { background: #ea8600; }
+
+        .review-meta h4 {
+            font-size: 0.95rem; font-weight: 700; color: var(--text-bright);
+        }
+        .review-meta span {
+            font-size: 0.75rem; color: var(--text-muted);
+        }
+
+        .review-stars { display: flex; gap: 2px; margin-bottom: 14px; }
+        .review-stars i { color: #fbbc04; font-size: 0.85rem; }
+
+        .review-card blockquote {
+            font-size: 0.92rem; color: var(--text); line-height: 1.75;
+            font-style: normal; quotes: none;
+        }
+
+        @media (max-width: 768px) {
+            .reviews-grid { grid-template-columns: 1fr; }
         }
 
         /* ============ WHY SUB ============ */
@@ -844,7 +915,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="testimonial-grid">
             <div class="testimonial-card reveal-left delay-1">
                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/TrTEXFij0Fw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/TrTEXFij0Fw" title="Opinia Artura" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                 </div>
                 <div class="testimonial-info">
                     <h3>Opinia Artura</h3>
@@ -854,12 +925,94 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <div class="testimonial-card reveal-right delay-2">
                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/ch2HZS345s0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ch2HZS345s0" title="Opinia Agnieszki" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                 </div>
                 <div class="testimonial-info">
                     <h3>Opinia Agnieszki</h3>
                     <p>Uczestniczka warsztatów oddechowych</p>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== GOOGLE REVIEWS ==================== -->
+<section class="section google-reviews">
+    <div class="container">
+        <div class="section-label reveal" style="justify-content: center; display: flex;">Opinie z Google</div>
+        <h2 class="section-title reveal" style="text-align: center;">
+            Co piszą <span class="gradient-text">uczestnicy</span>
+        </h2>
+
+        <div class="google-rating-summary reveal delay-1">
+            <span class="google-rating-number">5.0</span>
+            <div>
+                <div class="google-stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <span class="google-rating-count">Opinie Google</span>
+            </div>
+        </div>
+
+        <div class="reviews-grid">
+            <div class="review-card reveal delay-1">
+                <div class="review-header">
+                    <div class="review-avatar av1">A</div>
+                    <div class="review-meta">
+                        <h4>Artur Skrzypczak</h4>
+                        <span>11 opinii</span>
+                    </div>
+                </div>
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <blockquote>Sesje prowadzone bardzo profesjonalnie. Niejeden raz wkraczałem po nich w dalszą część dnia z lepszym humorem i energią a także spokojem :)</blockquote>
+            </div>
+
+            <div class="review-card reveal delay-2">
+                <div class="review-header">
+                    <div class="review-avatar av2">R</div>
+                    <div class="review-meta">
+                        <h4>Rafal Marcin</h4>
+                        <span>6 opinii</span>
+                    </div>
+                </div>
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <blockquote>Hej wszystkim, praktykuję pracę z ciałem i duchem z Aleksandrem od jakiegoś czasu i gorąco zachęcam do tych praktyk i Was, którzy to czytacie. Sesje są prowadzone profesjonalnie i z pasją. Za każdym razem odczuwam bardzo pozytywną energię i widzę efekty. Myślę że każdy z Was będzie mógł doświadczyć podobnych odczuć. Serdecznie pozdrawiam i życzę dużo chęci do transformacji tego co już nam nie służy 🌸❤️🌟</blockquote>
+            </div>
+
+            <div class="review-card reveal delay-3">
+                <div class="review-header">
+                    <div class="review-avatar av3">R</div>
+                    <div class="review-meta">
+                        <h4>Rafał</h4>
+                        <span>5 opinii</span>
+                    </div>
+                </div>
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <blockquote>Ćwiczenia relaksacyjne od trenera pomogły mi przebrnąć bez szwanku przez intensywny okres w życiu, czując się we własnym ciele nawet lepiej niż przedtem. Jak już się zacznie praktykować, to potem ciężko przestać, bo ćwiczenia wyraźnie podnoszą jakość codziennego życia. Szczerze polecam! :)</blockquote>
+            </div>
+
+            <div class="review-card reveal delay-4">
+                <div class="review-header">
+                    <div class="review-avatar av4">A</div>
+                    <div class="review-meta">
+                        <h4>Alicja Paruzel</h4>
+                        <span>5 opinii</span>
+                    </div>
+                </div>
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <blockquote>★★★★★</blockquote>
             </div>
         </div>
     </div>
