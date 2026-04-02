@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P4CSLTC9');</script>
+<!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tylko Luz Nas Uratuje — Subskrypcja Wellbeing | Aleksander Dudek</title>
+    <meta name="description" content="7 kursów wideo, kontakt bezpośredni i wszystkie przyszłe materiały za 44 zł/mies. Oddech, nerw błędny, emocje, koncentracja — konkretne narzędzia, które działają w kilka minut.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-deep: #050811;
+            --bg-section: #07091c;
+            --bg-card: rgba(255 255 255 / 0.04);
+            --accent: #2760F7;
+            --accent-light: #5b8aff;
+            --violet: #7c3aed;
+            --violet-glow: rgba(124, 58, 237, 0.3);
+            --blue-glow: rgba(39, 96, 247, 0.3);
+            --emerald: #10b981;
+            --amber: #f59e0b;
+            --rose: #f43f5e;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --text-bright: #f8fafc;
+            --gradient-main: linear-gradient(135deg, #2760F7 0%, #7c3aed 50%, #ec4899 100%);
+            --gradient-cta: linear-gradient(135deg, #2760F7 0%, #7c3aed 100%);
+            --radius: 16px;
+        }
+
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-deep);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-deep); }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+        .section { padding: 120px 0; position: relative; }
+
+        .gradient-text {
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ============ REVEALS ============ */
+        .reveal {
+            opacity: 0; transform: translateY(60px);
+            transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        .reveal-left {
+            opacity: 0; transform: translateX(-80px);
+            transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
+        }
+        .reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+        .reveal-right {
+            opacity: 0; transform: translateX(80px);
+            transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
+        }
+        .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+        .reveal-scale {
+            opacity: 0; transform: scale(0.85);
+            transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
+        }
+        .reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+
+        /* ============ ORBS ============ */
+        .orb {
+            position: absolute; border-radius: 50%;
+            filter: blur(100px); pointer-events: none; z-index: 0;
+        }
+        .orb-blue { background: var(--blue-glow); }
+        .orb-violet { background: var(--violet-glow); }
+        .orb-rose { background: rgba(244, 63, 94, 0.15); }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); opacity: 0.45; }
+            50% { transform: scale(1.18); opacity: 0.75; }
+        }
+
+        /* ============ HERO ============ */
+        .hero {
+            min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; position: relative; overflow: hidden;
+            padding: 40px 24px;
+        }
+        .hero .orb-1 { width: 600px; height: 600px; top: -200px; left: -100px; }
+        .hero .orb-2 { width: 500px; height: 500px; bottom: -150px; right: -100px; }
+        .hero .orb-3 {
+            width: 350px; height: 350px;
+            top: 50%; left: 50%; transform: translate(-50%,-50%);
+            animation: breathe 8s ease-in-out infinite;
+        }
+
+        .hero-particles { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
+        .hero-particles span {
+            position: absolute; width: 2px; height: 2px;
+            border-radius: 50%; animation: float-particle linear infinite;
+        }
+        @keyframes float-particle {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 1; } 90% { opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+
+        .hero-content { position: relative; z-index: 2; max-width: 850px; }
+
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 8px 20px; border-radius: 100px;
+            border: 1px solid rgba(39, 96, 247, 0.4);
+            background: rgba(39, 96, 247, 0.1);
+            font-size: 0.85rem; font-weight: 500; color: var(--accent-light);
+            margin-bottom: 32px;
+            animation: pulse-border 3s ease-in-out infinite;
+        }
+        @keyframes pulse-border {
+            0%, 100% { border-color: rgba(39,96,247,0.4); box-shadow: 0 0 20px rgba(39,96,247,0.1); }
+            50% { border-color: rgba(124,58,237,0.6); box-shadow: 0 0 30px rgba(124,58,237,0.15); }
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800; line-height: 1.1;
+            margin-bottom: 24px; letter-spacing: -0.02em;
+        }
+        .hero h1 .line-glow { position: relative; display: inline-block; }
+        .hero h1 .line-glow::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 100%; height: 3px; background: var(--gradient-main);
+            border-radius: 2px; animation: glow-line 3s ease-in-out infinite alternate;
+        }
+        @keyframes glow-line {
+            0% { box-shadow: 0 0 8px var(--violet-glow); }
+            100% { box-shadow: 0 0 20px var(--blue-glow); }
+        }
+
+        .hero-sub {
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
+            color: var(--text-muted); max-width: 640px;
+            margin: 0 auto 48px; line-height: 1.8;
+        }
+        .hero-sub strong { color: var(--accent-light); }
+
+        .hero-cta {
+            display: inline-flex; align-items: center; gap: 12px;
+            padding: 18px 44px; border-radius: 100px;
+            background: var(--gradient-cta); color: #fff;
+            font-weight: 700; font-size: 1.1rem; text-decoration: none;
+            position: relative; overflow: hidden;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            box-shadow: 0 0 40px rgba(39,96,247,0.4), 0 0 80px rgba(124,58,237,0.15);
+        }
+        .hero-cta:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 0 60px rgba(39,96,247,0.6), 0 0 120px rgba(124,58,237,0.25);
+        }
+        .hero-cta::before {
+            content: ''; position: absolute; top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.15), transparent 30%);
+            animation: rotate-shine 3s linear infinite;
+        }
+        @keyframes rotate-shine { to { transform: rotate(360deg); } }
+        .hero-cta span { position: relative; z-index: 1; }
+
+        .hero-meta {
+            margin-top: 28px; font-size: 0.85rem; color: var(--text-muted);
+            display: flex; align-items: center; justify-content: center;
+            gap: 20px; flex-wrap: wrap;
+        }
+        .hero-meta i { color: var(--accent-light); margin-right: 6px; }
+
+        .hero-product-img {
+            margin: 0 auto 40px; width: 140px; height: 180px;
+            border-radius: 14px; overflow: hidden;
+            box-shadow: 0 20px 60px rgba(39,96,247,0.25), 0 0 0 1px rgba(39,96,247,0.15);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+        .hero-product-img:hover {
+            transform: translateY(-6px) scale(1.04);
+            box-shadow: 0 30px 80px rgba(39,96,247,0.35), 0 0 0 1px rgba(39,96,247,0.3);
+        }
+        .hero-product-img img { width: 100%; height: 100%; object-fit: cover; }
+
+        .scroll-indicator {
+            position: absolute; bottom: 40px; left: 50%;
+            transform: translateX(-50%); z-index: 10;
+            display: flex; flex-direction: column; align-items: center; gap: 8px;
+            color: var(--text-muted); font-size: 0.75rem;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            animation: bounce-down 2s ease-in-out infinite;
+        }
+        .scroll-indicator i { font-size: 1.2rem; color: var(--accent-light); }
+        @keyframes bounce-down {
+            0%,100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* ============ STATS BAR ============ */
+        .stats-bar {
+            padding: 60px 0;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            background: rgba(7,9,28,0.8); backdrop-filter: blur(20px);
+        }
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px; text-align: center;
+        }
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.8rem; font-weight: 800; line-height: 1; margin-bottom: 8px;
+        }
+        .stat-label { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* ============ SECTION LABELS ============ */
+        .section-label {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 0.8rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.15em; color: var(--accent-light); margin-bottom: 20px;
+        }
+        .section-label::before {
+            content: ''; width: 24px; height: 2px;
+            background: var(--accent); border-radius: 2px;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
+            line-height: 1.15; margin-bottom: 24px; letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem; color: var(--text-muted);
+            max-width: 620px; margin-bottom: 60px; line-height: 1.7;
+        }
+
+        /* ============ PROBLEM ============ */
+        .problem { background: var(--bg-section); position: relative; }
+        .problem .orb-1 { width: 400px; height: 400px; top: 20%; right: -200px; }
+
+        .problem-cards {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;
+        }
+        .problem-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--radius); padding: 36px 28px;
+            position: relative; overflow: hidden;
+            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .problem-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(244,63,94,0.3);
+            box-shadow: 0 20px 60px rgba(244,63,94,0.1);
+        }
+        .problem-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, #f43f5e, var(--violet));
+            opacity: 0; transition: opacity 0.4s;
+        }
+        .problem-card:hover::before { opacity: 1; }
+
+        .problem-icon {
+            width: 56px; height: 56px; border-radius: 14px;
+            background: rgba(244,63,94,0.1);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px; font-size: 1.4rem; color: #f43f5e;
+        }
+        .problem-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; color: var(--text-bright); }
+        .problem-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
+
+        .problem-highlight {
+            margin-top: 60px; padding: 36px; border-radius: var(--radius);
+            background: linear-gradient(135deg, rgba(39,96,247,0.12), rgba(124,58,237,0.08));
+            border: 1px solid rgba(39,96,247,0.2);
+            text-align: center; font-size: 1.15rem; color: var(--text-bright);
+            line-height: 1.7; position: relative;
+        }
+        .problem-highlight::before {
+            content: ''; position: absolute; inset: -1px;
+            border-radius: var(--radius); background: var(--gradient-main);
+            z-index: -1; opacity: 0.15; filter: blur(20px);
+        }
+        .problem-highlight strong { color: var(--accent-light); }
+
+        /* ============ WHAT YOU GET ============ */
+        .offer { position: relative; }
+
+        .course-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .course-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--radius); padding: 32px 28px;
+            position: relative; overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease;
+        }
+        .course-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(39,96,247,0.3);
+            box-shadow: 0 20px 60px rgba(39,96,247,0.1);
+        }
+
+        .course-tag {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.1em; padding: 5px 12px; border-radius: 100px;
+            margin-bottom: 16px;
+        }
+        .course-tag.video { background: rgba(39,96,247,0.15); color: var(--accent-light); }
+        .course-tag.bonus { background: rgba(16,185,129,0.12); color: var(--emerald); }
+        .course-tag.contact { background: rgba(245,158,11,0.12); color: var(--amber); }
+
+        .course-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem; font-weight: 700; margin-bottom: 12px;
+            color: var(--text-bright); line-height: 1.4;
+        }
+        .course-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+        .course-price {
+            display: inline-block; margin-top: 14px;
+            font-size: 0.8rem; font-weight: 600; color: var(--text-muted);
+            padding: 4px 12px; border-radius: 8px;
+            background: rgba(255,255,255,0.04);
+        }
+        .course-price strong { color: var(--accent-light); }
+
+        /* ============ GALLERY ============ */
+        .gallery {
+            background: var(--bg-section); position: relative; overflow: hidden;
+        }
+        .gallery-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            border-radius: var(--radius); overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(39,96,247,0.12);
+        }
+        .gallery-item img { width: 100%; height: auto; display: block; }
+
+        /* ============ FOR WHOM ============ */
+        .audience { position: relative; overflow: hidden; }
+        .audience .orb-1 { width: 500px; height: 500px; bottom: -200px; left: -200px; }
+
+        .audience-split {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;
+        }
+
+        .for-box, .not-for-box {
+            padding: 40px 32px; border-radius: var(--radius);
+            position: relative; overflow: hidden;
+        }
+        .for-box {
+            background: rgba(16,185,129,0.04);
+            border: 1px solid rgba(16,185,129,0.15);
+        }
+        .not-for-box {
+            background: rgba(244,63,94,0.04);
+            border: 1px solid rgba(244,63,94,0.12);
+        }
+
+        .for-box h3, .not-for-box h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem; font-weight: 700; margin-bottom: 24px;
+        }
+        .for-box h3 { color: var(--emerald); }
+        .not-for-box h3 { color: var(--rose); }
+
+        .check-list {
+            list-style: none; display: flex; flex-direction: column; gap: 18px;
+        }
+        .check-list li {
+            display: flex; align-items: flex-start; gap: 14px;
+            font-size: 0.95rem; color: var(--text); line-height: 1.6;
+        }
+        .check-list li i { flex-shrink: 0; margin-top: 4px; font-size: 0.85rem; }
+        .for-box .check-list li i { color: var(--emerald); }
+        .not-for-box .check-list li i { color: var(--rose); }
+
+        /* ============ TESTIMONIALS ============ */
+        .testimonials { background: var(--bg-section); position: relative; }
+
+        .testimonial-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+        }
+        .testimonial-card {
+            border-radius: var(--radius); overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.06);
+            background: var(--bg-card);
+        }
+        .testimonial-card .video-wrapper {
+            position: relative; padding-bottom: 56.25%; height: 0;
+        }
+        .testimonial-card iframe {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%; border: 0;
+        }
+        .testimonial-card .testimonial-info {
+            padding: 20px 24px;
+        }
+        .testimonial-card h3 {
+            font-size: 1rem; font-weight: 700; color: var(--text-bright); margin-bottom: 4px;
+        }
+        .testimonial-card p {
+            font-size: 0.85rem; color: var(--text-muted);
+        }
+
+        /* ============ WHY SUB ============ */
+        .why-sub { position: relative; }
+
+        .reasons-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+        }
+        .reason-card {
+            padding: 40px 28px; border-radius: var(--radius);
+            border: 1px solid rgba(255,255,255,0.06);
+            background: var(--bg-card); text-align: center;
+            position: relative; overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .reason-card:hover { transform: translateY(-6px); }
+        .reason-card:nth-child(1):hover { box-shadow: 0 20px 60px rgba(39,96,247,0.15); }
+        .reason-card:nth-child(2):hover { box-shadow: 0 20px 60px rgba(124,58,237,0.15); }
+        .reason-card:nth-child(3):hover { box-shadow: 0 20px 60px rgba(16,185,129,0.15); }
+
+        .reason-icon {
+            width: 72px; height: 72px; border-radius: 20px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.6rem; margin: 0 auto 24px;
+        }
+        .reason-card:nth-child(1) .reason-icon { background: rgba(39,96,247,0.12); color: var(--accent-light); }
+        .reason-card:nth-child(2) .reason-icon { background: rgba(124,58,237,0.1); color: var(--violet); }
+        .reason-card:nth-child(3) .reason-icon { background: rgba(16,185,129,0.1); color: var(--emerald); }
+
+        .reason-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.15rem; font-weight: 700; margin-bottom: 16px; color: var(--text-bright);
+        }
+        .reason-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+
+        /* ============ PRICING ============ */
+        .pricing { position: relative; text-align: center; overflow: hidden; }
+        .pricing .orb-1 { width: 500px; height: 500px; top: -250px; left: 50%; margin-left: -250px; }
+
+        .pricing-card {
+            max-width: 620px; margin: 0 auto;
+            padding: 56px 48px; border-radius: 24px;
+            background: linear-gradient(180deg, rgba(39,96,247,0.06) 0%, rgba(124,58,237,0.03) 100%);
+            border: 1px solid rgba(39,96,247,0.25);
+            position: relative; overflow: hidden;
+        }
+        .pricing-card::before {
+            content: ''; position: absolute; inset: -2px;
+            border-radius: 26px; background: var(--gradient-main);
+            z-index: -1; opacity: 0.1;
+        }
+
+        .pricing-eyebrow {
+            font-size: 0.8rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.15em; color: var(--accent-light); margin-bottom: 16px;
+        }
+
+        .pricing-card h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+            font-weight: 800; margin-bottom: 20px;
+        }
+
+        .price-row {
+            display: flex; align-items: baseline; justify-content: center; gap: 8px; margin-bottom: 4px;
+        }
+        .price-amount {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem; font-weight: 800; line-height: 1;
+        }
+        .price-currency { font-size: 1.5rem; font-weight: 600; color: var(--text-muted); }
+        .price-interval { font-size: 1.1rem; color: var(--text-muted); font-weight: 500; }
+        .price-note { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 32px; }
+
+        .value-comparison {
+            display: flex; align-items: center; justify-content: center;
+            gap: 16px; margin-bottom: 32px; flex-wrap: wrap;
+        }
+        .value-old {
+            font-size: 1.1rem; color: var(--text-muted);
+            text-decoration: line-through; opacity: 0.6;
+        }
+        .value-arrow { color: var(--accent-light); font-size: 1.2rem; }
+        .value-new {
+            font-size: 1.2rem; font-weight: 700; color: var(--emerald);
+        }
+
+        .pricing-includes {
+            list-style: none; display: flex; flex-direction: column;
+            gap: 14px; margin-bottom: 36px; text-align: left;
+        }
+        .pricing-includes li {
+            display: flex; align-items: center; gap: 12px;
+            font-size: 0.92rem; color: var(--text);
+        }
+        .pricing-includes li i { color: var(--emerald); font-size: 0.85rem; }
+
+        .cta-button {
+            display: inline-flex; align-items: center; gap: 12px;
+            padding: 20px 56px; border-radius: 100px;
+            background: var(--gradient-cta); color: #fff;
+            font-weight: 700; font-size: 1.15rem; text-decoration: none;
+            position: relative; overflow: hidden;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            box-shadow: 0 0 40px rgba(39,96,247,0.35), 0 0 80px rgba(124,58,237,0.12);
+            border: none; cursor: pointer;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.04);
+            box-shadow: 0 0 60px rgba(39,96,247,0.55), 0 0 120px rgba(124,58,237,0.2);
+        }
+        .cta-button::before {
+            content: ''; position: absolute; top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.12), transparent 30%);
+            animation: rotate-shine 3s linear infinite;
+        }
+        .cta-button span { position: relative; z-index: 1; }
+
+        .guarantee {
+            margin-top: 28px;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            font-size: 0.85rem; color: var(--text-muted);
+        }
+        .guarantee i { color: var(--amber); }
+
+        .pricing-math {
+            margin-top: 48px; padding: 32px; border-radius: var(--radius);
+            background: rgba(39,96,247,0.04);
+            border: 1px solid rgba(39,96,247,0.15);
+            max-width: 620px; margin-left: auto; margin-right: auto;
+        }
+        .pricing-math p { font-size: 0.95rem; color: var(--text); line-height: 1.8; }
+        .pricing-math strong { color: var(--accent-light); }
+        .pricing-math .math-big {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.7rem; font-weight: 800; margin: 16px 0 8px;
+        }
+
+        /* ============ FOOTER ============ */
+        .footer {
+            padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.06);
+            text-align: center;
+        }
+        .footer p { font-size: 0.8rem; color: var(--text-muted); }
+        .footer-brand { font-weight: 700; color: var(--accent-light); }
+
+        /* ============ PROGRESS BAR ============ */
+        .progress-bar {
+            position: fixed; top: 0; left: 0;
+            height: 3px; background: var(--gradient-main);
+            z-index: 9999; transition: width 0.15s ease;
+            box-shadow: 0 0 10px var(--blue-glow);
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 900px) {
+            .reasons-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .audience-split, .testimonial-grid { grid-template-columns: 1fr; }
+            .course-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .section { padding: 80px 0; }
+            .hero { padding: 80px 16px 60px; }
+            .pricing-card { padding: 36px 24px; }
+            .price-amount { font-size: 3.2rem; }
+        }
+    </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P4CSLTC9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+    <div class="hero-particles" id="particles"></div>
+    <div class="orb orb-blue orb-1"></div>
+    <div class="orb orb-violet orb-2"></div>
+    <div class="orb orb-rose orb-3"></div>
+
+    <div class="hero-content">
+        <div class="hero-badge reveal-scale">
+            <i class="fa-solid fa-infinity"></i>
+            Subskrypcja · 7 kursów + kontakt
+        </div>
+
+        <div class="hero-product-img reveal-scale delay-1">
+            <img src="https://uploads.eu.naffy.io/69448b57b55f13835f29e963/H3TSJtjJvk3JusQFCUySL.png" alt="Tylko Luz Nas Uratuje — okładka" width="140" height="180">
+        </div>
+
+        <h1 class="reveal">
+            Tylko luz<br>
+            <span class="gradient-text line-glow">nas uratuje</span>
+        </h1>
+
+        <p class="hero-sub reveal delay-1">
+            Żyjemy w dobie potężnego przebodźcowania. Twój układ nerwowy nie potrzebuje kolejnej aplikacji do medytacji.
+            Potrzebuje <strong>konkretnych narzędzi</strong> — takich, które działają w kilka minut.
+        </p>
+
+        <a href="https://www.naffy.io/aleksander-dudek/tylko-luz-nas-uratuje-fYr" class="hero-cta reveal delay-2">
+            <span><i class="fa-solid fa-bolt-lightning"></i> Dołącz za 44 zł/mies.</span>
+        </a>
+
+        <div class="hero-meta reveal delay-3">
+            <span><i class="fa-solid fa-video"></i> 7 kursów wideo</span>
+            <span><i class="fa-solid fa-comments"></i> Kontakt bezpośredni</span>
+            <span><i class="fa-solid fa-rotate"></i> Anuluj kiedy chcesz</span>
+        </div>
+    </div>
+
+    <div class="scroll-indicator">
+        <span>Odkryj więcej</span>
+        <i class="fa-solid fa-chevron-down"></i>
+    </div>
+</section>
+
+<!-- ==================== STATS BAR ==================== -->
+<div class="stats-bar">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item reveal delay-1">
+                <div class="stat-number gradient-text">1 532 zł</div>
+                <div class="stat-label">wartość wszystkich kursów kupowanych osobno</div>
+            </div>
+            <div class="stat-item reveal delay-2">
+                <div class="stat-number gradient-text">44 zł</div>
+                <div class="stat-label">miesięcznie — mniej niż jeden obiad na mieście</div>
+            </div>
+            <div class="stat-item reveal delay-3">
+                <div class="stat-number gradient-text">5–15 min</div>
+                <div class="stat-label">dziennie wystarczy, żeby poczuć realną zmianę</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== PROBLEM ==================== -->
+<section class="section problem">
+    <div class="orb orb-violet orb-1"></div>
+    <div class="container">
+        <div class="section-label reveal">Problem</div>
+        <h2 class="section-title reveal">
+            Twój układ nerwowy nie nadąża<br>za <span class="gradient-text">tempem cywilizacji</span>
+        </h2>
+        <p class="section-subtitle reveal delay-1">
+            Pokolenia naszych dziadków pracowały w jednym miejscu 20-30 lat.
+            A my? Jak mijają 2 lata to już jest nieźle.
+        </p>
+
+        <div class="problem-cards">
+            <div class="problem-card reveal delay-1">
+                <div class="problem-icon"><i class="fa-solid fa-bolt"></i></div>
+                <h3>Przebodźcowanie</h3>
+                <p>Praca. Szybko. Relacje. Szybko. Wiadomości. Dużo. Tempo. Tempo. Tempo. Twój układ nerwowy nie był przystosowany do tak gwałtownych zmian.</p>
+            </div>
+            <div class="problem-card reveal delay-2">
+                <div class="problem-icon"><i class="fa-solid fa-moon"></i></div>
+                <h3>Problemy ze snem</h3>
+                <p>Ciało nie potrafi się wyłączyć. Kładziesz się zmęczony, ale głowa pracuje dalej. Zasypiasz po godzinie, budzisz się z napięciem.</p>
+            </div>
+            <div class="problem-card reveal delay-3">
+                <div class="problem-icon"><i class="fa-solid fa-users-slash"></i></div>
+                <h3>Mniejszy kontakt z ludźmi</h3>
+                <p>Zwiększony stres, zmniejszona empatia, trudności w budowaniu więzi. Nie dlatego, że nie chcesz — dlatego, że ciało jest w trybie przetrwania.</p>
+            </div>
+        </div>
+
+        <div class="problem-highlight reveal delay-2">
+            <strong>Jest jak jest, ale możesz z tym coś zrobić.</strong><br>
+            Wzmocnić nerw błędny. Zmniejszyć przebodźcowanie. Poprawić codzienne funkcjonowanie.<br>
+            Potrzebujesz <strong>konkretnych narzędzi</strong> — nie ładnych cytatów.
+        </div>
+    </div>
+</section>
+
+<!-- ==================== GALLERY ==================== -->
+<section class="section gallery">
+    <div class="container">
+        <div class="section-label reveal" style="justify-content: center; display: flex;">O programie</div>
+        <h2 class="section-title reveal" style="text-align: center;">
+            Narzędzia, które <span class="gradient-text">naprawdę działają</span>
+        </h2>
+        <p class="section-subtitle reveal delay-1" style="text-align: center; max-width: 600px; margin-left: auto; margin-right: auto;">
+            Materiały DIY — włączasz nagranie, robisz po kolei instrukcje. Zaprojektowane tak, żeby każdy wyciągnął z tego wartość samodzielnie.
+        </p>
+
+        <div class="gallery-grid">
+            <div class="gallery-item reveal delay-1">
+                <img src="https://assets.eu.naffy.io/69448b57b55f13835f29e963/7qo5Z/Wellbeing_3.0_SatiSpace_Full_CORRECTED.jpg" alt="Wellbeing program" loading="lazy">
+            </div>
+            <div class="gallery-item reveal delay-2">
+                <img src="https://assets.eu.naffy.io/69448b57b55f13835f29e963/pkr25/Wellbeing3_3.0_SatiSpace_Full_CORRECTED.jpg" alt="Wellbeing narzędzia" loading="lazy">
+            </div>
+            <div class="gallery-item reveal delay-3">
+                <img src="https://assets.eu.naffy.io/69448b57b55f13835f29e963/jLmyi/Wellbeing2_3.0_SatiSpace_Full_CORRECTED.jpg" alt="Wellbeing praktyka" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== WHAT YOU GET ==================== -->
+<section class="section offer">
+    <div class="container">
+        <div class="section-label reveal">Co dostajesz</div>
+        <h2 class="section-title reveal">
+            Kompletna biblioteka <span class="gradient-text">wellbeing</span>
+        </h2>
+        <p class="section-subtitle reveal delay-1">
+            7 kursów wideo, kontakt bezpośredni i wszystkie przyszłe materiały — w jednej subskrypcji.
+        </p>
+
+        <div class="course-grid">
+            <div class="course-card reveal delay-1">
+                <span class="course-tag video"><i class="fa-solid fa-play"></i> Kurs wideo</span>
+                <h3>Oddech, który zmienia życie</h3>
+                <p>Podstawowa technika oddechowa. Łatwa do zapamiętania. Reguluje pracę układu nerwowego w każdej sytuacji, miejscu i czasie.</p>
+                <span class="course-price">Osobno: <strong>47 zł</strong></span>
+            </div>
+
+            <div class="course-card reveal delay-2">
+                <span class="course-tag video"><i class="fa-solid fa-play"></i> Kurs wideo</span>
+                <h3>Techniki oddechowe na każdą okazję</h3>
+                <p>4 techniki na inne sytuacje: stres, bezsenność, reset mentalny, zmęczenie. Te same, których używają siły specjalne.</p>
+                <span class="course-price">Osobno: <strong>350 zł</strong></span>
+            </div>
+
+            <div class="course-card reveal delay-3">
+                <span class="course-tag video"><i class="fa-solid fa-play"></i> Kurs wideo</span>
+                <h3>Emocjonalna błogość w 15 minut</h3>
+                <p>Praca z ciałem przez świadomy dotyk i akupresurę. Działa w biurze, w podróży, w domu. Do wykonania solo lub w parze.</p>
+                <span class="course-price">Osobno: <strong>280 zł</strong></span>
+            </div>
+
+            <div class="course-card reveal delay-1">
+                <span class="course-tag video"><i class="fa-solid fa-play"></i> Kurs wideo</span>
+                <h3>Niestandardowe metody pracy z emocjami</h3>
+                <p>Techniki do trudnych momentów, które wykraczają poza „weź głęboki oddech i się uspokój".</p>
+                <span class="course-price">Osobno: <strong>125 zł</strong></span>
+            </div>
+
+            <div class="course-card reveal delay-2">
+                <span class="course-tag video"><i class="fa-solid fa-play"></i> Kurs wideo</span>
+                <h3>Jak włączyć luz i wyłączyć napięcie</h3>
+                <p>Kurs o pracy z nerwem błędnym — od 0 do wdrożenia różnych metod. Przełącz ciało z trybu walki w regenerację.</p>
+                <span class="course-price">Osobno: <strong>280 zł</strong></span>
+            </div>
+
+            <div class="course-card reveal delay-3">
+                <span class="course-tag video"><i class="fa-solid fa-play"></i> Kurs wideo</span>
+                <h3>Laserowa koncentracja. Spokojna głowa</h3>
+                <p>Dla pracujących przy komputerze. Praca siedząca osłabia koncentrację i utrudnia sen — ten minikurs to naprawia.</p>
+                <span class="course-price">Osobno: <strong>280 zł</strong></span>
+            </div>
+
+            <div class="course-card reveal delay-1">
+                <span class="course-tag video"><i class="fa-solid fa-play"></i> Kurs wideo</span>
+                <h3>Technologia w służbie rozwoju</h3>
+                <p>Praktyczny przewodnik po urządzeniach i aplikacjach, które realnie wspierają Twój rozwój fizyczny, mentalny i intelektualny.</p>
+                <span class="course-price">Osobno: <strong>170 zł</strong></span>
+            </div>
+
+            <div class="course-card reveal delay-2">
+                <span class="course-tag contact"><i class="fa-solid fa-message"></i> Kontakt</span>
+                <h3>WhatsApp / SMS — bezpośredni dostęp</h3>
+                <p>Masz pytanie? Piszesz. Nie rozumiesz techniki? Piszesz. Odpowiadam pisemnie najszybciej jak się da. Wliczone w subskrypcję.</p>
+                <span class="course-price">Na rynku: <strong>50–80 zł / zapytanie</strong></span>
+            </div>
+
+            <div class="course-card reveal delay-3">
+                <span class="course-tag bonus"><i class="fa-solid fa-gift"></i> Bonus</span>
+                <h3>Wszystkie przyszłe kursy i materiały</h3>
+                <p>Odżywianie, ruch fizyczny, technologie przeciwdziałające przebodźcowaniu i więcej — dostajesz automatycznie jako subskrybent.</p>
+                <span class="course-price">Wartość: <strong>rośnie z każdym miesiącem</strong></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== TESTIMONIALS ==================== -->
+<section class="section testimonials">
+    <div class="container">
+        <div class="section-label reveal" style="justify-content: center; display: flex;">Opinie</div>
+        <h2 class="section-title reveal" style="text-align: center;">
+            Co mówią <span class="gradient-text">uczestnicy</span>
+        </h2>
+        <p class="section-subtitle reveal delay-1" style="text-align: center; max-width: 500px; margin-left: auto; margin-right: auto;">
+            Ludzie, którzy już korzystają z tych narzędzi — własnymi słowami.
+        </p>
+
+        <div class="testimonial-grid">
+            <div class="testimonial-card reveal-left delay-1">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/TrTEXFij0Fw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="testimonial-info">
+                    <h3>Opinia Artura</h3>
+                    <p>Uczestnik warsztatów oddechowych</p>
+                </div>
+            </div>
+
+            <div class="testimonial-card reveal-right delay-2">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/ch2HZS345s0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="testimonial-info">
+                    <h3>Opinia Agnieszki</h3>
+                    <p>Uczestniczka warsztatów oddechowych</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FOR WHOM ==================== -->
+<section class="section audience">
+    <div class="orb orb-blue orb-1"></div>
+    <div class="container">
+        <div class="section-label reveal">Dla kogo</div>
+        <h2 class="section-title reveal">
+            Sprawdź, czy to <span class="gradient-text">jest dla Ciebie</span>
+        </h2>
+        <p class="section-subtitle reveal delay-1">
+            Nie dla każdego — i to jest w porządku.
+        </p>
+
+        <div class="audience-split">
+            <div class="for-box reveal-left delay-1">
+                <h3><i class="fa-solid fa-circle-check" style="margin-right: 8px;"></i> To jest dla Ciebie, jeśli:</h3>
+                <ul class="check-list">
+                    <li><i class="fa-solid fa-check"></i> Chcesz na co dzień mieć lepsze samopoczucie i wiedzieć, że możesz na nie wpłynąć samodzielnie</li>
+                    <li><i class="fa-solid fa-check"></i> Stres i napięcie to Twoja codzienność, nie wyjątek</li>
+                    <li><i class="fa-solid fa-check"></i> Szukasz czegoś bez sprzętu, bez godzinnych sesji, bez specjalnych warunków</li>
+                    <li><i class="fa-solid fa-check"></i> Chcesz metod, które działają — nie tylko ładnie wyglądają na Instagramie</li>
+                    <li><i class="fa-solid fa-check"></i> Jesteś ciekaw/a, jak pogłębiać dobre samopoczucie na co dzień</li>
+                </ul>
+            </div>
+
+            <div class="not-for-box reveal-right delay-2">
+                <h3><i class="fa-solid fa-circle-xmark" style="margin-right: 8px;"></i> To NIE jest dla Ciebie, jeśli:</h3>
+                <ul class="check-list">
+                    <li><i class="fa-solid fa-xmark"></i> Szukasz „magicznej pigułki" bez jakiegokolwiek zaangażowania</li>
+                    <li><i class="fa-solid fa-xmark"></i> Oczekujesz zastępnika terapii lub leczenia specjalistycznego</li>
+                    <li><i class="fa-solid fa-xmark"></i> Nie jesteś gotowy ćwiczyć regularnie — choćby 10–15 minut dziennie</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== WHY SUBSCRIPTION ==================== -->
+<section class="section why-sub" style="background: var(--bg-section);">
+    <div class="container">
+        <div class="section-label reveal" style="justify-content: center; display: flex;">Dlaczego subskrypcja</div>
+        <h2 class="section-title reveal" style="text-align: center;">
+            Trzy powody, dla których <span class="gradient-text">to działa</span>
+        </h2>
+        <p class="section-subtitle reveal delay-1" style="text-align: center; max-width: 600px; margin-left: auto; margin-right: auto;">
+            Model, który pozwala Ci wydać mniej — a dostać więcej.
+        </p>
+
+        <div class="reasons-grid">
+            <div class="reason-card reveal delay-1">
+                <div class="reason-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
+                <h3>Regularnie aktualizowane</h3>
+                <p>Kursy są ulepszane w oparciu o Wasze sugestie i potrzeby. Subskrypcja to złoty środek między jakością, czasem włożonym w tworzenie i Twoją inwestycją.</p>
+            </div>
+            <div class="reason-card reveal delay-2">
+                <div class="reason-icon"><i class="fa-solid fa-user"></i></div>
+                <h3>Dostęp do mnie</h3>
+                <p>Zadawaj pytania o praktyki — to jest bardzo cenne. Masz dostęp nie tylko do wiedzy z nagrań, ale do całej wiedzy, jaką posiadam.</p>
+            </div>
+            <div class="reason-card reveal delay-3">
+                <div class="reason-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <h3>Rosnąca wartość</h3>
+                <p>Więcej użytkowników = więcej materiałów. Nowe formy przekazu, które byłyby nieopłacalne 1:1, są opłacalne dla Ciebie w modelu 1:wielu.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== PRICING ==================== -->
+<section class="section pricing" id="pricing">
+    <div class="orb orb-blue orb-1"></div>
+    <div class="container">
+        <div class="pricing-card reveal-scale">
+            <div class="pricing-eyebrow">Pełny dostęp do wszystkiego</div>
+            <h2>Tylko luz <span class="gradient-text">nas uratuje</span></h2>
+
+            <div class="value-comparison">
+                <span class="value-old">1 532 zł osobno</span>
+                <i class="fa-solid fa-arrow-right value-arrow"></i>
+                <span class="value-new">44 zł / miesiąc</span>
+            </div>
+
+            <div class="price-row">
+                <span class="price-amount gradient-text">44</span>
+                <span class="price-currency">zł</span>
+            </div>
+            <p class="price-interval">miesięcznie</p>
+            <p class="price-note">Bez zobowiązań · Anuluj w każdym momencie</p>
+
+            <ul class="pricing-includes">
+                <li><i class="fa-solid fa-circle-check"></i> 7 kompletnych kursów wideo online</li>
+                <li><i class="fa-solid fa-circle-check"></i> Oddech, nerw błędny, emocje, koncentracja, technologie</li>
+                <li><i class="fa-solid fa-circle-check"></i> Kontakt bezpośredni — WhatsApp / SMS</li>
+                <li><i class="fa-solid fa-circle-check"></i> Wszystkie przyszłe kursy i aktualizacje</li>
+                <li><i class="fa-solid fa-circle-check"></i> Dostęp 24/7 — korzystaj kiedy chcesz i ile chcesz</li>
+            </ul>
+
+            <a href="https://www.naffy.io/aleksander-dudek/tylko-luz-nas-uratuje-fYr" class="cta-button">
+                <span><i class="fa-solid fa-bolt-lightning"></i> Dołącz teraz</span>
+            </a>
+
+            <div class="guarantee">
+                <i class="fa-solid fa-shield-halved"></i>
+                Bezpieczna płatność · Stripe · Anuluj kiedy chcesz
+            </div>
+        </div>
+
+        <div class="pricing-math reveal delay-2">
+            <p>Konsultacja lub masaż to <strong>150–350 zł</strong> za jedną sesję. Tutaj masz nielimitowany dostęp 24/7 do wszystkich technik.</p>
+            <div class="math-big gradient-text">44 zł/mies. · mniej niż obiad</div>
+            <p>Im dłużej stosujesz te praktyki, <strong>tym szybciej i lepiej działają</strong>. Twój układ nerwowy uczy się i zapamiętuje.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+    <div class="container">
+        <p>Aleksander Dudek · <span class="footer-brand">Tylko Luz Nas Uratuje</span> · &copy; 2026</p>
+        <p style="margin-top: 8px; font-size: 0.75rem;">Materiały mają charakter edukacyjny i informacyjny. Nie stanowią porady medycznej ani terapeutycznej.</p>
+    </div>
+</footer>
+
+<!-- ============ JAVASCRIPT ============ -->
+<script>
+    const progressBar = document.getElementById('progressBar');
+    function updateProgress() {
+        const scrollTop = document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        progressBar.style.width = (scrollTop / scrollHeight) * 100 + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+    revealElements.forEach(el => observer.observe(el));
+
+    const particlesContainer = document.getElementById('particles');
+    for (let i = 0; i < 45; i++) {
+        const span = document.createElement('span');
+        const size = Math.random() * 3 + 1;
+        span.style.width = size + 'px';
+        span.style.height = size + 'px';
+        span.style.left = Math.random() * 100 + '%';
+        span.style.animationDuration = (Math.random() * 12 + 8) + 's';
+        span.style.animationDelay = (Math.random() * 10) + 's';
+        const colors = [
+            'rgba(39, 96, 247, 0.6)',
+            'rgba(124, 58, 237, 0.5)',
+            'rgba(244, 63, 94, 0.3)',
+            'rgba(91, 138, 255, 0.4)'
+        ];
+        span.style.background = colors[Math.floor(Math.random() * colors.length)];
+        particlesContainer.appendChild(span);
+    }
+
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const scrollY = window.scrollY;
+                document.querySelectorAll('.orb').forEach((orb, i) => {
+                    orb.style.transform = `translateY(${scrollY * (0.03 + i * 0.015)}px)`;
+                });
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
+
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    window.addEventListener('scroll', () => {
+        scrollIndicator.style.opacity = window.scrollY > 200 ? '0' : '1';
+        scrollIndicator.style.transition = 'opacity 0.5s ease';
+    }, { passive: true });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+</script>
+
+</body>
+</html>
