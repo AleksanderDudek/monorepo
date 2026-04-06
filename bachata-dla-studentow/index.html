@@ -586,6 +586,31 @@
     .video-tag--shorts { background: rgba(225,29,72,0.20); color: #ffffff; }
     .video-tag--ig     { background: rgba(249,115,22,0.12); color: var(--pink); }
     .video-info p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+    /* YouTube thumbnail card (embedding disabled fallback) */
+    .video-thumb-card {
+        display: block; position: relative; overflow: hidden;
+        aspect-ratio: 16 / 9; background: #000; text-decoration: none;
+    }
+    .video-thumb-card img {
+        width: 100%; height: 100%; object-fit: cover; display: block;
+        transition: transform 0.4s, opacity 0.4s; opacity: 0.85;
+    }
+    .video-thumb-card:hover img { transform: scale(1.04); opacity: 1; }
+    .video-play-btn {
+        position: absolute; top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        width: 72px; height: 72px; border-radius: 50%;
+        background: rgba(225,29,72,0.90);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 2rem; color: #fff;
+        box-shadow: 0 0 40px rgba(225,29,72,0.5);
+        transition: transform 0.3s, background 0.3s;
+        pointer-events: none;
+    }
+    .video-thumb-card:hover .video-play-btn {
+        transform: translate(-50%, -50%) scale(1.12);
+        background: var(--teal);
+    }
 
     /* ===== PROGRAM STEPS ===== */
     .program-steps {
@@ -760,157 +785,53 @@
     </p>
 </div>
 
-<!-- ==================== FORMY WSPÓŁPRACY ==================== -->
-<section class="section awaits">
-    <div class="container">
-        <div class="sec-label reveal">Formy współpracy</div>
-        <h2 class="sec-title reveal">
-            Jak możemy <span class="gradient-text">współpracować</span>
-        </h2>
-        <p class="sec-sub reveal d1">
-            Jesteśmy elastyczni — dopasujemy się do kalendarza i formatu Waszych wydarzeń.
-        </p>
-
-        <div class="awaits-grid">
-            <div class="await-card reveal d1">
-                <div class="await-icon"><i class="fa-solid fa-calendar-star"></i></div>
-                <h3>Wydarzenie w ramach kalendarza samorządu</h3>
-                <p>Otrzęsiny, integracje, Juwenalia, Dzień Studenta — wchodzimy z gotowym, sprawdzonym programem. Wy ogłaszacie, my dowozimy.</p>
-            </div>
-            <div class="await-card reveal d2">
-                <div class="await-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                <h3>Dedykowane warsztaty dla Waszych studentów</h3>
-                <p>Zorganizujemy warsztaty specjalnie dla środowiska Waszej uczelni — na preferencyjnych warunkach, z pełnym programem od podstaw.</p>
-            </div>
-            <div class="await-card reveal d3">
-                <div class="await-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
-                <h3>Cykliczne wydarzenia studenckie</h3>
-                <p>Możemy stać się stałym punktem w programie cyklicznych spotkań — regularny kontakt, budowanie społeczności przez taniec.</p>
-            </div>
-            <div class="await-card reveal d4">
-                <div class="await-icon"><i class="fa-solid fa-location-dot"></i></div>
-                <h3>Lekcja u Was lub w naszym studiu</h3>
-                <p>Możemy przyjechać do Waszej sali, lub zaprosić grupę do Kimama Dance Studio w centrum Szczecina. Obie opcje są bezpłatne.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ==================== PROGRAM LEKCJI ==================== -->
+<!-- ==================== WIDEO — PUM 2026 ==================== -->
 <section class="section" style="background: var(--bg2);">
     <div class="container">
-        <div class="sec-label reveal">Program</div>
-        <h2 class="sec-title reveal">
-            Co zawiera <span class="gradient-text">lekcja pokazowa</span>
-        </h2>
-        <p class="sec-sub reveal d1">
-            Gotowy, prowadzony przez nas program trwający ok. 45–60 minut. Zero pracy po stronie organizatora.
-        </p>
-
-        <div class="program-steps">
-            <div class="step reveal d1">
-                <div class="step-num gradient-text">01</div>
-                <div class="step-body">
-                    <h3>Wprowadzenie — historia i kultura bachaty</h3>
-                    <p>Skąd pochodzi bachata, dlaczego stała się jednym z najpopularniejszych tańców towarzyskich na świecie i jak uczestnicy mogą z niej korzystać na co dzień — na imprezach, weselach, spotkaniach towarzyskich.</p>
-                </div>
-            </div>
-            <div class="step reveal d2">
-                <div class="step-num gradient-text">02</div>
-                <div class="step-body">
-                    <h3>Część praktyczna — nauka kroków i figur</h3>
-                    <p>Podstawowy krok, prowadzenie w parze, pierwsze figury. Uczymy tak, żeby każdy — nawet osoba bez żadnego doświadczenia tanecznego — wyszła z czymś, czego może użyć. Nie potrzeba pary na wejście — zadbamy o rotację partnerów.</p>
-                </div>
-            </div>
-            <div class="step reveal d3">
-                <div class="step-num gradient-text">03</div>
-                <div class="step-body">
-                    <h3>Pokaz taneczny — demonstracja na żywo</h3>
-                    <p>Monia i Hubert pokazują bachatę w pełnej formie. Uczestnicy widzą, do czego mogą dojść — i zostają z motywacją do kontynuowania.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="program-note reveal d2">
-            <i class="fa-solid fa-circle-info" style="color:var(--teal); margin-right:10px;"></i>
-            <span>Udział <strong>nie wymaga</strong> wcześniejszego doświadczenia tanecznego ani przybycia w parze — warunki do komfortowej nauki zapewniamy my.</span>
-        </div>
-    </div>
-</section>
-
-<!-- ==================== DLACZEGO WARTO ==================== -->
-<section class="section">
-    <div class="container">
-        <div class="sec-label reveal">Wartość dla Waszych studentów</div>
-        <h2 class="sec-title reveal">
-            Dlaczego to <span class="gradient-text">działa na wydarzeniach</span>
-        </h2>
-        <p class="sec-sub reveal d1">
-            Bachata to nie tylko taniec — to narzędzie integracji, które angażuje wszystkich uczestników niezależnie od poziomu.
-        </p>
-
-        <div class="why-grid">
-            <div class="why-card reveal d1">
-                <i class="fa-solid fa-people-arrows why-icon"></i>
-                <h3>Naturalny icebreaker</h3>
-                <p>Taniec w parach wymaga bliskiego kontaktu, co w naturalny sposób przełamuje lody i tworzy wspomnienia. Znacznie skuteczniejszy niż integracja przy stołach.</p>
-            </div>
-            <div class="why-card reveal d2">
-                <i class="fa-solid fa-bolt why-icon" style="color:var(--purple)"></i>
-                <h3>Bez bariery wejścia</h3>
-                <p>Bachata tradycyjna jest wyjątkowo przystępna. Podstawy można opanować w 45 minut. Nie ma „ktoś umie, ktoś nie" — wszyscy zaczynają od zera.</p>
-            </div>
-            <div class="why-card reveal d3">
-                <i class="fa-solid fa-trophy why-icon" style="color:var(--pink)"></i>
-                <h3>Umiejętność na całe życie</h3>
-                <p>Podstawy bachaty są uniwersalne — działają na każdej imprezie tanecznej, weselu, spotkaniu towarzyskim. Studenci wychodzą z czymś, co będą pamiętać.</p>
-            </div>
-            <div class="why-card reveal d4">
-                <i class="fa-solid fa-chart-line why-icon" style="color:var(--gold)"></i>
-                <h3>Aktywizacja środowiska</h3>
-                <p>Taniec towarzyski popularyzuje aktywność fizyczną i integrację społeczną — cele bliskie każdemu samorządowi studenckiemu.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ==================== LOGISTYKA ==================== -->
-<section class="section" style="background: var(--bg2);">
-    <div class="container">
-        <div class="sec-label reveal" style="justify-content:center;display:flex;">Logistyka</div>
+        <div class="sec-label reveal" style="justify-content:center;display:flex;">Dowód w akcji</div>
         <h2 class="sec-title reveal" style="text-align:center;">
-            Miejsce, liczba osób <span class="gradient-text">i formalności</span>
+            Jak wyglądają <span class="gradient-text">nasze warsztaty</span>
         </h2>
         <p class="sec-sub reveal d1" style="text-align:center;margin-left:auto;margin-right:auto;">
-            Minimalna biurokracja, maksymalna elastyczność.
+            Poniższe nagrania pochodzą z warsztatów zorganizowanych dla studentów PUM Szczecin w 2026 roku.
         </p>
 
-        <div class="info-grid">
-            <div class="info-card reveal d1">
-                <div class="info-icon"><i class="fa-solid fa-building-columns"></i></div>
-                <div class="info-label">Miejsce — opcja 1</div>
-                <div class="info-value">Sala na Waszej uczelni<br><span style="font-size:0.8rem;color:var(--muted);font-family:'Nunito',sans-serif;font-weight:500;">Przyjeżdżamy do Was</span></div>
+        <div class="video-grid">
+            <!-- YouTube pełny film — thumbnail link (embedding disabled) -->
+            <div class="video-card reveal d1">
+                <a href="https://youtu.be/A7mXGt3G4b4" target="_blank" rel="noopener" class="video-thumb-card" aria-label="Obejrzyj relację z warsztatów na YouTube">
+                    <img src="https://i.ytimg.com/vi/A7mXGt3G4b4/maxresdefault.jpg" alt="Warsztaty bachaty dla studentów PUM Szczecin 2026" loading="lazy">
+                    <div class="video-play-btn" aria-hidden="true">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                </a>
+                <div class="video-info">
+                    <span class="video-tag"><i class="fa-brands fa-youtube"></i> YouTube</span>
+                    <p>Relacja wideo z warsztatów bachaty dla studentów PUM, Szczecin 2026</p>
+                </div>
             </div>
-            <div class="info-card reveal d2">
-                <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
-                <div class="info-label">Miejsce — opcja 2</div>
-                <div class="info-value">Kimama Dance Studio<br><span style="font-size:0.8rem;color:var(--muted);font-family:'Nunito',sans-serif;font-weight:500;">CH Nowy Turzyn, I p., Szczecin</span></div>
-            </div>
-            <div class="info-card reveal d3">
-                <div class="info-icon"><i class="fa-solid fa-users"></i></div>
-                <div class="info-label">Liczba uczestników</div>
-                <div class="info-value">Min. 20 osób<br>Maks. 60 osób</div>
-            </div>
-            <div class="info-card reveal d4">
-                <div class="info-icon"><i class="fa-solid fa-tag"></i></div>
-                <div class="info-label">Koszt dla samorządu</div>
-                <div class="info-value" style="color:var(--teal);">0 zł<br><span style="font-size:0.8rem;color:var(--muted);font-family:'Nunito',sans-serif;font-weight:500;">Całkowicie bezpłatne</span></div>
-            </div>
-        </div>
 
-        <div class="program-note reveal d2" style="margin-top: 40px;">
-            <i class="fa-solid fa-circle-info" style="color:var(--gold); margin-right:10px;"></i>
-            <span>W przypadku organizacji u nas w studiu potrzebujemy orientacyjnej liczby uczestników z <strong>wyprzedzeniem</strong>, aby potwierdzić termin. Sala mieści max. 60 osób.</span>
+            <!-- YouTube Shorts -->
+            <div class="video-card reveal d2">
+                <div class="video-ratio video-ratio--shorts">
+                    <iframe src="https://www.youtube.com/embed/mcD3BZWUai8?rel=0" title="Bachata PUM Szczecin 2026 — Shorts" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="video-info">
+                    <span class="video-tag video-tag--shorts"><i class="fa-brands fa-youtube"></i> Shorts</span>
+                    <p>Skrót z warsztatów — bachata z początkowymi studentami PUM 2026</p>
+                </div>
+            </div>
+
+            <!-- Instagram Reel -->
+            <div class="video-card reveal d3">
+                <div class="video-ratio video-ratio--reel">
+                    <iframe src="https://www.instagram.com/reel/DWg3xqwiL9t/embed/" title="Instagram Reel — warsztaty bachaty PUM 2026" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="video-info">
+                    <span class="video-tag video-tag--ig"><i class="fa-brands fa-instagram"></i> Instagram Reel</span>
+                    <p>Reel z warsztatów bachaty dla studentów PUM Szczecin 2026</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -955,50 +876,157 @@
     </div>
 </section>
 
-<!-- ==================== WIDEO — PUM 2026 ==================== -->
-<section class="section" style="background: var(--bg2);">
+<!-- ==================== FORMY WSPÓŁPRACY ==================== -->
+<section class="section awaits" style="background: var(--bg2);">
     <div class="container">
-        <div class="sec-label reveal" style="justify-content:center;display:flex;">Dowód w akcji</div>
-        <h2 class="sec-title reveal" style="text-align:center;">
-            Jak wyglądają <span class="gradient-text">nasze warsztaty</span>
+        <div class="sec-label reveal">Formy współpracy</div>
+        <h2 class="sec-title reveal">
+            Jak możemy <span class="gradient-text">współpracować</span>
         </h2>
-        <p class="sec-sub reveal d1" style="text-align:center;margin-left:auto;margin-right:auto;">
-            Poniższe nagrania pochodzą z warsztatów zorganizowanych dla studentów PUM Szczecin w 2026 roku.
+        <p class="sec-sub reveal d1">
+            Jesteśmy elastyczni — dopasujemy się do kalendarza i formatu Waszych wydarzeń.
         </p>
 
-        <div class="video-grid">
-            <!-- YouTube pełny film -->
-            <div class="video-card reveal d1">
-                <div class="video-ratio">
-                    <iframe src="https://www.youtube.com/embed/A7mXGt3G4b4?rel=0" title="Warsztaty bachaty dla studentów PUM Szczecin 2026" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-                </div>
-                <div class="video-info">
-                    <span class="video-tag"><i class="fa-brands fa-youtube"></i> YouTube</span>
-                    <p>Relacja wideo z warsztatów bachaty dla studentów PUM, Szczecin 2026</p>
-                </div>
+        <div class="awaits-grid">
+            <div class="await-card reveal d1">
+                <div class="await-icon"><i class="fa-solid fa-calendar-star"></i></div>
+                <h3>Wydarzenie w ramach kalendarza samorządu</h3>
+                <p>Otrzęsiny, integracje, Juwenalia, Dzień Studenta — wchodzimy z gotowym, sprawdzonym programem. Wy ogłaszacie, my dowozimy.</p>
             </div>
+            <div class="await-card reveal d2">
+                <div class="await-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <h3>Dedykowane warsztaty dla Waszych studentów</h3>
+                <p>Zorganizujemy warsztaty specjalnie dla środowiska Waszej uczelni — na preferencyjnych warunkach, z pełnym programem od podstaw.</p>
+            </div>
+            <div class="await-card reveal d3">
+                <div class="await-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
+                <h3>Cykliczne wydarzenia studenckie</h3>
+                <p>Możemy stać się stałym punktem w programie cyklicznych spotkań — regularny kontakt, budowanie społeczności przez taniec.</p>
+            </div>
+            <div class="await-card reveal d4">
+                <div class="await-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <h3>Lekcja u Was lub w naszym studiu</h3>
+                <p>Możemy przyjechać do Waszej sali, lub zaprosić grupę do Kimama Dance Studio w centrum Szczecina. Obie opcje są bezpłatne.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-            <!-- YouTube Shorts -->
-            <div class="video-card reveal d2">
-                <div class="video-ratio video-ratio--shorts">
-                    <iframe src="https://www.youtube.com/embed/mcD3BZWUai8?rel=0" title="Bachata PUM Szczecin 2026 — Shorts" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-                </div>
-                <div class="video-info">
-                    <span class="video-tag video-tag--shorts"><i class="fa-brands fa-youtube"></i> Shorts</span>
-                    <p>Skrót z warsztatów — bachata z początkowymi studentami PUM 2026</p>
-                </div>
-            </div>
+<!-- ==================== PROGRAM LEKCJI ==================== -->
+<section class="section">
+    <div class="container">
+        <div class="sec-label reveal">Program</div>
+        <h2 class="sec-title reveal">
+            Co zawiera <span class="gradient-text">lekcja pokazowa</span>
+        </h2>
+        <p class="sec-sub reveal d1">
+            Gotowy, prowadzony przez nas program trwający ok. 45–60 minut. Zero pracy po stronie organizatora.
+        </p>
 
-            <!-- Instagram Reel -->
-            <div class="video-card reveal d3">
-                <div class="video-ratio video-ratio--reel">
-                    <iframe src="https://www.instagram.com/reel/DWg3xqwiL9t/embed/" title="Instagram Reel — warsztaty bachaty PUM 2026" allowfullscreen loading="lazy"></iframe>
-                </div>
-                <div class="video-info">
-                    <span class="video-tag video-tag--ig"><i class="fa-brands fa-instagram"></i> Instagram Reel</span>
-                    <p>Reel z warsztatów bachaty dla studentów PUM Szczecin 2026</p>
+        <div class="program-steps">
+            <div class="step reveal d1">
+                <div class="step-num gradient-text">01</div>
+                <div class="step-body">
+                    <h3>Wprowadzenie — historia i kultura bachaty</h3>
+                    <p>Skąd pochodzi bachata, dlaczego stała się jednym z najpopularniejszych tańców towarzyskich na świecie i jak uczestnicy mogą z niej korzystać na co dzień — na imprezach, weselach, spotkaniach towarzyskich.</p>
                 </div>
             </div>
+            <div class="step reveal d2">
+                <div class="step-num gradient-text">02</div>
+                <div class="step-body">
+                    <h3>Część praktyczna — nauka kroków i figur</h3>
+                    <p>Podstawowy krok, prowadzenie w parze, pierwsze figury. Uczymy tak, żeby każdy — nawet osoba bez żadnego doświadczenia tanecznego — wyszła z czymś, czego może użyć. Nie potrzeba pary na wejście — zadbamy o rotację partnerów.</p>
+                </div>
+            </div>
+            <div class="step reveal d3">
+                <div class="step-num gradient-text">03</div>
+                <div class="step-body">
+                    <h3>Pokaz taneczny — demonstracja na żywo</h3>
+                    <p>Monia i Hubert pokazują bachatę w pełnej formie. Uczestnicy widzą, do czego mogą dojść — i zostają z motywacją do kontynuowania.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="program-note reveal d2">
+            <i class="fa-solid fa-circle-info" style="color:var(--teal); margin-right:10px;"></i>
+            <span>Udział <strong>nie wymaga</strong> wcześniejszego doświadczenia tanecznego ani przybycia w parze — warunki do komfortowej nauki zapewniamy my.</span>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== DLACZEGO WARTO ==================== -->
+<section class="section" style="background: var(--bg2);">
+    <div class="container">
+        <div class="sec-label reveal">Wartość dla Waszych studentów</div>
+        <h2 class="sec-title reveal">
+            Dlaczego to <span class="gradient-text">działa na wydarzeniach</span>
+        </h2>
+        <p class="sec-sub reveal d1">
+            Bachata to nie tylko taniec — to narzędzie integracji, które angażuje wszystkich uczestników niezależnie od poziomu.
+        </p>
+
+        <div class="why-grid">
+            <div class="why-card reveal d1">
+                <i class="fa-solid fa-people-arrows why-icon"></i>
+                <h3>Naturalny icebreaker</h3>
+                <p>Taniec w parach wymaga bliskiego kontaktu, co w naturalny sposób przełamuje lody i tworzy wspomnienia. Znacznie skuteczniejszy niż integracja przy stołach.</p>
+            </div>
+            <div class="why-card reveal d2">
+                <i class="fa-solid fa-bolt why-icon" style="color:var(--purple)"></i>
+                <h3>Bez bariery wejścia</h3>
+                <p>Bachata tradycyjna jest wyjątkowo przystępna. Podstawy można opanować w 45 minut. Nie ma „ktoś umie, ktoś nie" — wszyscy zaczynają od zera.</p>
+            </div>
+            <div class="why-card reveal d3">
+                <i class="fa-solid fa-trophy why-icon" style="color:var(--pink)"></i>
+                <h3>Umiejętność na całe życie</h3>
+                <p>Podstawy bachaty są uniwersalne — działają na każdej imprezie tanecznej, weselu, spotkaniu towarzyskim. Studenci wychodzą z czymś, co będą pamiętać.</p>
+            </div>
+            <div class="why-card reveal d4">
+                <i class="fa-solid fa-chart-line why-icon" style="color:var(--gold)"></i>
+                <h3>Aktywizacja środowiska</h3>
+                <p>Taniec towarzyski popularyzuje aktywność fizyczną i integrację społeczną — cele bliskie każdemu samorządowi studenckiemu.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== LOGISTYKA ==================== -->
+<section class="section">
+    <div class="container">
+        <div class="sec-label reveal" style="justify-content:center;display:flex;">Logistyka</div>
+        <h2 class="sec-title reveal" style="text-align:center;">
+            Miejsce, liczba osób <span class="gradient-text">i formalności</span>
+        </h2>
+        <p class="sec-sub reveal d1" style="text-align:center;margin-left:auto;margin-right:auto;">
+            Minimalna biurokracja, maksymalna elastyczność.
+        </p>
+
+        <div class="info-grid">
+            <div class="info-card reveal d1">
+                <div class="info-icon"><i class="fa-solid fa-building-columns"></i></div>
+                <div class="info-label">Miejsce — opcja 1</div>
+                <div class="info-value">Sala na Waszej uczelni<br><span style="font-size:0.8rem;color:var(--muted);font-family:'Nunito',sans-serif;font-weight:500;">Przyjeżdżamy do Was</span></div>
+            </div>
+            <div class="info-card reveal d2">
+                <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="info-label">Miejsce — opcja 2</div>
+                <div class="info-value">Kimama Dance Studio<br><span style="font-size:0.8rem;color:var(--muted);font-family:'Nunito',sans-serif;font-weight:500;">CH Nowy Turzyn, I p., Szczecin</span></div>
+            </div>
+            <div class="info-card reveal d3">
+                <div class="info-icon"><i class="fa-solid fa-users"></i></div>
+                <div class="info-label">Liczba uczestników</div>
+                <div class="info-value">Min. 20 osób<br>Maks. 60 osób</div>
+            </div>
+            <div class="info-card reveal d4">
+                <div class="info-icon"><i class="fa-solid fa-tag"></i></div>
+                <div class="info-label">Koszt dla samorządu</div>
+                <div class="info-value" style="color:var(--teal);">0 zł<br><span style="font-size:0.8rem;color:var(--muted);font-family:'Nunito',sans-serif;font-weight:500;">Całkowicie bezpłatne</span></div>
+            </div>
+        </div>
+
+        <div class="program-note reveal d2" style="margin-top: 40px;">
+            <i class="fa-solid fa-circle-info" style="color:var(--gold); margin-right:10px;"></i>
+            <span>W przypadku organizacji u nas w studiu potrzebujemy orientacyjnej liczby uczestników z <strong>wyprzedzeniem</strong>, aby potwierdzić termin. Sala mieści max. 60 osób.</span>
         </div>
     </div>
 </section>
