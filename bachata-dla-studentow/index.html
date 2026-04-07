@@ -102,7 +102,7 @@
         padding: 0 24px;
       }
       .section {
-        padding: 110px 0;
+        padding: 80px 0;
         position: relative;
       }
 
@@ -221,7 +221,7 @@
         align-items: center;
         position: relative;
         overflow: hidden;
-        padding: 120px 24px 80px;
+        padding: 100px 16px 60px;
       }
       .hero .orb-1 {
         width: 700px;
@@ -246,8 +246,8 @@
 
       .hero-inner {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 64px;
+        grid-template-columns: 1fr;
+        gap: 48px;
         align-items: center;
         position: relative;
         z-index: 2;
@@ -379,6 +379,8 @@
         align-items: center;
         justify-content: center;
         position: relative;
+        max-width: 480px;
+        margin: 0 auto;
       }
       /* glow disc behind illustration */
       .hero-art::before {
@@ -400,7 +402,7 @@
 
       .duo-hero-img {
         width: 100%;
-        max-width: 420px;
+        max-width: 320px;
         height: auto;
         filter: drop-shadow(0 24px 70px rgba(124, 58, 237, 0.55))
           drop-shadow(0 4px 24px rgba(225, 29, 72, 0.35));
@@ -631,9 +633,11 @@
 
       .instructor-pair {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 36px;
         align-items: start;
+        max-width: 480px;
+        margin: 0 auto;
       }
       .instructor-card {
         background: var(--surface);
@@ -804,7 +808,7 @@
       }
       .fw-split {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 48px;
         align-items: start;
       }
@@ -992,7 +996,7 @@
         margin: 0 auto;
         position: relative;
         z-index: 2;
-        padding: 72px 56px;
+        padding: 40px 24px;
         border-radius: 32px;
         background: linear-gradient(
           145deg,
@@ -1249,6 +1253,7 @@
           var(--pink)
         ); /* karmazyn → fiolet → bursztyn */
         opacity: 0.3;
+        display: none;
       }
       .step {
         display: flex;
@@ -1366,8 +1371,8 @@
       /* ===== STUDIO SPLIT ===== */
       .studio-split {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
+        grid-template-columns: 1fr;
+        gap: 36px;
         align-items: center;
       }
       .studio-address-card {
@@ -1385,16 +1390,6 @@
         flex-wrap: wrap;
         gap: 16px;
         margin-bottom: 0;
-      }
-
-      /* ===== RESPONSIVE (additions) ===== */
-      @media (max-width: 900px) {
-        .studio-split {
-          grid-template-columns: 1fr;
-        }
-        .program-steps::before {
-          display: none;
-        }
       }
 
       /* ===== FOOTER ===== */
@@ -1429,37 +1424,44 @@
         color: var(--teal);
       }
 
-      /* ===== RESPONSIVE ===== */
-      @media (max-width: 900px) {
-        .instructor-pair {
-          grid-template-columns: 1fr;
-          max-width: 480px;
-          margin: 0 auto;
-        }
-        .fw-split {
-          grid-template-columns: 1fr;
-        }
-        .hero-inner {
-          grid-template-columns: 1fr;
-          gap: 48px;
-        }
-        .hero-art {
-          max-width: 480px;
-          margin: 0 auto;
-        }
-      }
-      @media (max-width: 600px) {
+      /* ===== RESPONSIVE — mobile-first ===== */
+      @media (min-width: 600px) {
         .section {
-          padding: 80px 0;
+          padding: 110px 0;
         }
         .hero {
-          padding: 100px 16px 60px;
+          padding: 120px 24px 80px;
         }
         .cta-card {
-          padding: 40px 24px;
+          padding: 72px 56px;
         }
         .duo-hero-img {
-          max-width: 320px;
+          max-width: 420px;
+        }
+      }
+      @media (min-width: 900px) {
+        .hero-inner {
+          grid-template-columns: 1fr 1fr;
+          gap: 64px;
+        }
+        .hero-art {
+          max-width: none;
+          margin: 0;
+        }
+        .instructor-pair {
+          grid-template-columns: 1fr 1fr;
+          max-width: none;
+          margin: 0;
+        }
+        .fw-split {
+          grid-template-columns: 1fr 1fr;
+        }
+        .studio-split {
+          grid-template-columns: 1fr 1fr;
+          gap: 60px;
+        }
+        .program-steps::before {
+          display: block;
         }
       }
     </style>
@@ -1717,7 +1719,7 @@
         <div class="awaits-grid">
           <div class="await-card reveal d1">
             <div class="await-icon">
-              <i class="fa-solid fa-calendar-star"></i>
+              <i class="fa-solid fa-calendar-check"></i>
             </div>
             <h3>Wydarzenie w ramach kalendarza samorządu</h3>
             <p>
