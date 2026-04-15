@@ -1,0 +1,9 @@
+.DS_Store
+.env
+apps/spec-pitch/prospects.csv
+apps/spec-pitch/.venv/
+apps/spec-pitch/__pycache__/
+apps/spec-pitch/src/spec_pitch/__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
