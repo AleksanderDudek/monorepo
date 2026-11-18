@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>90 idiomów w 19 językach</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f5f2;--card:#fff;--ink:#1d1d1f;--mute:#6b6b70;--line:#e4e2dd;--acc:#2f6f5e;--acc2:#e7f1ed;--warn:#9a6a12;--warnbg:#fbf3e2;--read:#f2f7f5}
+@media (prefers-color-scheme:dark){:root{--bg:#141416;--card:#1d1d20;--ink:#ececee;--mute:#9a9aa2;--line:#2e2e33;--acc:#6cc3a7;--acc2:#1f2f2a;--warn:#e0b35a;--warnbg:#2c2618;--read:#18221f}}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.45}
+header{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:12px 18px}
+.top{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+h1{font-size:18px;margin:0;font-weight:700}
+.overall{flex:1;min-width:200px;display:flex;align-items:center;gap:10px;color:var(--mute);font-size:13px}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;flex:1}
+.bar>i{display:block;height:100%;background:var(--acc);border-radius:3px}
+.tabs{display:flex;gap:4px;background:var(--line);padding:3px;border-radius:9px}
+.tabs button{border:0;background:transparent;color:var(--ink);padding:6px 12px;border-radius:7px;font:inherit;font-size:13px;font-weight:500;cursor:pointer}
+.tabs button.on{background:var(--card);box-shadow:0 1px 2px #0002}
+.layout{display:grid;grid-template-columns:270px 1fr;min-height:calc(100vh - 60px)}
+aside{border-right:1px solid var(--line);overflow:auto;max-height:calc(100vh - 60px);position:sticky;top:60px}
+.search{padding:10px}
+.search input{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font:inherit;font-size:14px}
+.item{display:block;width:100%;text-align:left;border:0;background:none;color:inherit;padding:8px 12px;cursor:pointer;font:inherit;font-size:14px;border-left:3px solid transparent}
+.item:hover{background:var(--card)}
+.item.on{background:var(--card);border-left-color:var(--acc)}
+.item .row{display:flex;justify-content:space-between;gap:8px}
+.item .n{color:var(--mute);font-size:12px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.item .bar{margin-top:5px;height:4px}
+.item.done .n{color:var(--acc);font-weight:600}
+.grp{padding:12px 12px 4px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);font-weight:600}
+main{padding:18px 22px 60px;max-width:980px}
+.head h2{margin:0 0 4px;font-size:22px}
+.head .sub{color:var(--mute);font-size:14px}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 6px;align-items:center}
+.seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{border:0;background:var(--card);color:var(--ink);padding:6px 10px;font:inherit;font-size:13px;cursor:pointer}
+.seg button.on{background:var(--acc);color:#fff}
+.btn{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 10px;border-radius:8px;font:inherit;font-size:13px;cursor:pointer}
+.btn:hover{border-color:var(--acc)}
+.cat{margin:22px 0 6px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);font-weight:600}
+.card{display:grid;grid-template-columns:28px 1fr;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:8px 0;scroll-margin-top:80px}
+.card.read{background:var(--read)}
+.card.read .t{opacity:.75}
+.chk{width:22px;height:22px;margin-top:2px;accent-color:var(--acc);cursor:pointer}
+.meta{font-size:12.5px;color:var(--mute);margin-bottom:4px}
+.meta b{color:var(--ink);font-weight:600}
+.t{font-size:17px;font-weight:600;margin:2px 0 6px}
+.pr{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;font-size:13.5px}
+.pr span:nth-child(odd){color:var(--mute);font-size:12px;padding-top:1px}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:1px 7px;border-radius:10px;margin-left:6px;vertical-align:2px}
+.tag.d{background:var(--warnbg);color:var(--warn)}
+.tag.l{background:var(--acc2);color:var(--acc)}
+.empty{color:var(--mute);padding:30px 0}
+.note{font-size:12px;color:var(--mute);margin-top:6px}
+.store{font-size:12px;color:var(--mute)}
+.menu{display:none}
+@media (max-width:760px){
+ .layout{grid-template-columns:1fr}
+ aside{position:fixed;inset:60px 0 0 0;max-height:none;background:var(--bg);z-index:4;display:none}
+ aside.open{display:block}
+ .menu{display:inline-block}
+ main{padding:14px}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="top">
+  <button class="btn menu" id="menu">☰ Lista</button>
+  <h1>90 idiomów · 19 języków</h1>
+  <div class="tabs"><button id="tLang" class="on">Według języka</button><button id="tIdiom">Według idiomu</button></div>
+  <div class="overall"><span id="ovTxt">…</span><div class="bar"><i id="ovBar" style="width:0"></i></div><span class="store" id="store"></span></div>
+ </div>
+</header>
+<div class="layout">
+ <aside id="side"><div class="search"><input id="q" placeholder="Szukaj…" autocomplete="off"></div><div id="list"></div></aside>
+ <main id="main"><div class="empty">Ładowanie…</div></main>
+</div>
+<script>
+const S={mode:'lang',sel:null,filter:'all',q:''};
+let DATA=null, READ={}, db=null, col=null, storeOk=false;
+const LS='idiomy60-read-v1';
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function loadLocal(){try{const o=JSON.parse(localStorage.getItem(LS)||'{}');for(const k in o)READ[k]=new Set(o[k]);}catch(e){}}
+function saveLocal(){try{const o={};for(const k in READ)o[k]=[...READ[k]];localStorage.setItem(LS,JSON.stringify(o));}catch(e){}}
+const isRead=(c,i)=>!!(READ[c]&&READ[c].has(i));
+const cntLang=c=>READ[c]?READ[c].size:0;
+const cntIdiom=i=>DATA.langs.reduce((a,l)=>a+(isRead(l.code,i)?1:0),0);
+const total=()=>DATA.langs.reduce((a,l)=>a+cntLang(l.code),0);
+const pending={};const writing={};
+async function persist(c){
+ saveLocal();
+ if(!col)return;
+ if(writing[c]){pending[c]=true;return;}
+ writing[c]=true;
+ try{await col.doc('read-'+c).set({ids:[...(READ[c]||[])].sort((a,b)=>a-b),at:Date.now()});}
+ catch(e){$('store').textContent='zapis tylko w tej przeglądarce';}
+ writing[c]=false;
+ if(pending[c]){pending[c]=false;persist(c);}
+}
+function toggle(c,i,v){
+ if(!READ[c])READ[c]=new Set();
+ v?READ[c].add(i):READ[c].delete(i);
+ persist(c);renderList();renderOverall();
+ const card=document.querySelector(`.card[data-k="${c}:${i}"]`);
+ if(card){card.classList.toggle('read',v);
+  if(S.filter==='unread'&&v)setTimeout(()=>{card.remove();headCount();},250);
+  if(S.filter==='read'&&!v)setTimeout(()=>{card.remove();headCount();},250);}
+ headCount();
+}
+function renderOverall(){const t=total(),all=DATA.langs.length*90;$('ovTxt').textContent=`Przeczytane: ${t} / ${all}`;$('ovBar').style.width=(100*t/all)+'%';}
+function norm(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');}
+function renderList(){
+ const q=norm(S.q);let h='';
+ if(S.mode==='lang'){
+  for(const l of DATA.langs){
+   if(q&&!norm(l.name+' '+l.code).includes(q))continue;
+   const n=cntLang(l.code);
+   h+=`<button class="item ${S.sel===l.code?'on':''} ${n===90?'done':''}" data-l="${l.code}"><div class="row"><span>${l.n}. ${esc(l.name)}</span><span class="n">${n}/90</span></div><div class="bar"><i style="width:${n/90*100}%"></i></div></button>`;
+  }
+ }else{
+  let cat='';const L=DATA.langs.length;
+  for(const d of DATA.idioms){
+   if(q&&!norm(d.en+' '+d.pl).includes(q))continue;
+   if(d.cat!==cat){cat=d.cat;h+=`<div class="grp">${esc(cat)}</div>`;}
+   const n=cntIdiom(d.id);
+   h+=`<button class="item ${S.sel===d.id?'on':''} ${n===L?'done':''}" data-i="${d.id}"><div class="row"><span>${esc(d.en)}</span><span class="n">${n}/${L}</span></div><div class="bar"><i style="width:${n/L*100}%"></i></div></button>`;
+  }
+ }
+ $('list').innerHTML=h||'<div class="empty" style="padding:12px">Brak wyników</div>';
+}
+function card(c,i,title,meta,tr){
+ const r=isRead(c,i);
+ const tag=c==='en'?'':tr[3]==='D'?'<span class="tag d" title="Brak lokalnego odpowiednika – tłumaczenie dosłowne">dosłownie</span>':'<span class="tag l" title="Lokalny idiom o tym samym sensie">lokalny odpowiednik</span>';
+ return `<label class="card ${r?'read':''}" data-k="${c}:${i}"><input type="checkbox" class="chk" ${r?'checked':''} data-c="${c}" data-i="${i}"><div><div class="meta">${meta}</div><div class="t">${esc(tr[0])}${tag}</div><div class="pr"><span>Wymowa PL</span><span>${esc(tr[1])}</span><span>Pronunciation EN</span><span>${esc(tr[2])}</span></div></div></label>`;
+}
+function pass(c,i){return S.filter==='all'||(S.filter==='read')===isRead(c,i);}
+function headCount(){const el=$('hc');if(!el)return;
+ if(S.mode==='lang'){el.textContent=`${cntLang(S.sel)} / 90 przeczytane`;}
+ else{el.textContent=`${cntIdiom(S.sel)} / ${DATA.langs.length} przeczytane`;}}
+function tools(){
+ const f=(k,t)=>`<button class="${S.filter===k?'on':''}" data-f="${k}">${t}</button>`;
+ return `<div class="tools"><div class="seg">${f('all','Wszystkie')}${f('unread','Nieprzeczytane')}${f('read','Przeczytane')}</div><button class="btn" id="next">↓ Następne nieprzeczytane</button><button class="btn" id="markAll">Zaznacz wszystkie widoczne</button><button class="btn" id="clearAll">Odznacz wszystkie</button></div>`;
+}
+function renderMain(){
+ if(S.sel==null){$('main').innerHTML='<div class="empty">Wybierz z listy po lewej.</div>';return;}
+ let h='';
+ if(S.mode==='lang'){
+  const l=DATA.langs.find(x=>x.code===S.sel);
+  h+=`<div class="head"><h2>${l.n}. ${esc(l.name)}</h2><div class="sub" id="hc"></div></div>`+tools();
+  let cat='',any=false;
+  DATA.idioms.forEach((d,k)=>{
+   if(!pass(l.code,d.id))return;any=true;
+   if(d.cat!==cat){cat=d.cat;h+=`<div class="cat">${esc(cat)}</div>`;}
+   h+=card(l.code,d.id,null,`<b>${d.id}. ${esc(d.en)}</b> · ${esc(d.pl)}`,l.t[k]);
+  });
+  if(!any)h+='<div class="empty">Nic tu nie ma w tym filtrze.</div>';
+ }else{
+  const d=DATA.idioms.find(x=>x.id===S.sel),k=d.id-1;
+  h+=`<div class="head"><h2>${d.id}. ${esc(d.en)}</h2><div class="sub">${esc(d.pl)} · ${esc(d.cat)} · <span id="hc"></span></div></div>`+tools();
+  let any=false;
+  for(const l of DATA.langs){if(!pass(l.code,d.id))continue;any=true;h+=card(l.code,d.id,null,`<b>${l.n}. ${esc(l.name)}</b>`,l.t[k]);}
+  if(!any)h+='<div class="empty">Nic tu nie ma w tym filtrze.</div>';
+ }
+ h+='<p class="note">„lokalny odpowiednik” = powiedzenie, którego naprawdę używa się w tym języku (często z innym obrazem). „dosłownie” = brak znanego odpowiednika, więc tłumaczenie słowo w słowo – zrozumieją sens, ale to nie jest utarte powiedzenie. WIELKIE LITERY w wymowie = akcent.</p>';
+ $('main').innerHTML=h;headCount();
+}
+function setHash(){const h=S.mode==='lang'?'lang-'+S.sel:'idiom-'+S.sel;if(location.hash!=='#'+h)try{history.replaceState(null,'','#'+h);}catch(e){location.hash=h;}}
+function fromHash(){const m=location.hash.match(/^#(lang|idiom)-([a-z0-9]+)$/);
+ if(m){if(m[1]==='lang'&&DATA.langs.some(l=>l.code===m[2])){S.mode='lang';S.sel=m[2];return;}
+  if(m[1]==='idiom'&&+m[2]>=1&&+m[2]<=90){S.mode='idiom';S.sel=+m[2];return;}}
+ S.mode='lang';S.sel=DATA.langs[0].code;}
+function setMode(m){S.mode=m;$('tLang').classList.toggle('on',m==='lang');$('tIdiom').classList.toggle('on',m==='idiom');}
+function go(){setMode(S.mode);renderList();renderMain();setHash();$('side').classList.remove('open');window.scrollTo(0,0);}
+$('tLang').onclick=()=>{if(S.mode==='lang')return;const i=S.sel;S.mode='lang';S.sel=DATA.langs[0].code;go();};
+$('tIdiom').onclick=()=>{if(S.mode==='idiom')return;S.mode='idiom';S.sel=1;go();};
+$('menu').onclick=()=>$('side').classList.toggle('open');
+$('q').oninput=e=>{S.q=e.target.value;renderList();};
+$('list').onclick=e=>{const b=e.target.closest('.item');if(!b)return;S.sel=b.dataset.l||+b.dataset.i;go();};
+$('main').addEventListener('change',e=>{const c=e.target.closest('.chk');if(c)toggle(c.dataset.c,+c.dataset.i,c.checked);});
+$('main').addEventListener('click',e=>{
+ const f=e.target.closest('[data-f]');if(f){S.filter=f.dataset.f;renderMain();return;}
+ if(e.target.id==='next'){const cards=[...document.querySelectorAll('.card:not(.read)')];const y=window.scrollY+90;const n=cards.find(c=>c.getBoundingClientRect().top+window.scrollY>y+5)||cards[0];if(n)n.scrollIntoView({behavior:'smooth',block:'start'});return;}
+ if(e.target.id==='markAll'||e.target.id==='clearAll'){const v=e.target.id==='markAll';const touched=new Set();
+  document.querySelectorAll('.chk').forEach(c=>{const code=c.dataset.c,i=+c.dataset.i;if(!READ[code])READ[code]=new Set();v?READ[code].add(i):READ[code].delete(i);touched.add(code);});
+  touched.forEach(persist);renderList();renderOverall();renderMain();}
+});
+window.addEventListener('hashchange',()=>{if(!DATA)return;const a=S.mode+S.sel;fromHash();if(a!==S.mode+S.sel)go();});
+loadLocal();
+fetch('data.json').then(r=>r.json()).then(d=>{DATA=d;fromHash();go();renderOverall();connect();})
+ .catch(()=>{$('main').innerHTML='<div class="empty">Nie udało się wczytać danych.</div>';});
+async function connect(){
+ try{
+  if(!window.claude||!window.claude.use){$('store').textContent='postęp zapisany w tej przeglądarce';return;}
+  const [d,u]=await Promise.all([claude.use('db'),claude.use('user')]);
+  if(!d||!u){$('store').textContent='postęp zapisany w tej przeglądarce';return;}
+  const id=await u.id();if(!id){$('store').textContent='postęp zapisany w tej przeglądarce';return;}
+  db=d;col=db.collection('data/users/'+id);
+  let first=true;const timer=setTimeout(()=>{$('store').textContent='łączenie z zapisem…';},10000);
+  col.onSnapshot(snap=>{
+   clearTimeout(timer);
+   const remote={};snap.docs.forEach(x=>{if(x.id.startsWith('read-')){const v=x.data();remote[x.id.slice(5)]=new Set((v&&v.ids)||[]);}});
+   let changed=false;const sig=s=>[...(s||[])].sort((a,b)=>a-b).join(',');
+   if(first){first=false;changed=true;
+    // scal lokalne odhaczenia z zapisanymi na koncie (nic nie ginie)
+    const codes=new Set([...Object.keys(remote),...Object.keys(READ)]);
+    for(const c of codes){const loc=READ[c]||new Set(),rem=remote[c]||new Set();const m=new Set([...loc,...rem]);READ[c]=m;if(m.size!==rem.size)persist(c);}
+   }else if(!snap.metadata.hasPendingWrites){for(const c in remote)if(!writing[c]&&sig(READ[c])!==sig(remote[c])){READ[c]=remote[c];changed=true;}}
+   saveLocal();storeOk=true;$('store').textContent='✓ zapisywane na koncie';
+   if(changed){renderList();renderOverall();renderMain();}
+  },err=>{clearTimeout(timer);$('store').textContent='postęp zapisany w tej przeglądarce';col=null;});
+ }catch(e){$('store').textContent='postęp zapisany w tej przeglądarce';}
+}
+</script>
+</body>
+</html>
